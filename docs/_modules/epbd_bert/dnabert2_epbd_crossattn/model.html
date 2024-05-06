@@ -1,0 +1,677 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>epbd_bert.dnabert2_epbd_crossattn.model &#8212; EPBD-BERT 1.0.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=eafc0fe6" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=bd9e20870c6007c4c509" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=bd9e20870c6007c4c509" />
+  <script src="../../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=bd9e20870c6007c4c509"></script>
+
+    <script src="../../../_static/documentation_options.js?v=f9c1cefe"></script>
+    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/epbd_bert/dnabert2_epbd_crossattn/model';</script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <header>
+  
+    <div class="bd-header navbar navbar-expand-lg bd-navbar">
+    </div>
+  
+  </header>
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">EPBD-BERT 1.0.0 documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../modules/modules.html">epbd_bert</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../modules/epbd_bert.html">epbd_bert package</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/epbd_bert.datasets.html">epbd_bert.datasets package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/epbd_bert.dnabert2_classifier.html">epbd_bert.dnabert2_classifier package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/epbd_bert.dnabert2_epbd.html">epbd_bert.dnabert2_epbd package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/epbd_bert.dnabert2_epbd_crossattn.html">epbd_bert.dnabert2_epbd_crossattn package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/epbd_bert.utility.html">epbd_bert.utility package</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for epbd_bert.dnabert2_epbd_crossattn.model</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">torch</span>
+<span class="kn">import</span> <span class="nn">torch.nn</span> <span class="k">as</span> <span class="nn">nn</span>
+<span class="kn">import</span> <span class="nn">torch.nn.functional</span> <span class="k">as</span> <span class="nn">F</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">metrics</span>
+<span class="kn">import</span> <span class="nn">lightning</span>
+<span class="kn">import</span> <span class="nn">lightning.pytorch.loggers</span>
+
+<span class="kn">from</span> <span class="nn">epbd_bert.utility.data_utils</span> <span class="kn">import</span> <span class="n">compute_multi_class_weights</span>
+<span class="kn">from</span> <span class="nn">epbd_bert.utility.dnabert2</span> <span class="kn">import</span> <span class="n">get_dnabert2_pretrained_model</span>
+<span class="kn">from</span> <span class="nn">epbd_bert.dnabert2_epbd_crossattn.configs</span> <span class="kn">import</span> <span class="n">EPBDConfigs</span>
+
+
+<div class="viewcode-block" id="PositionWiseFeedForward">
+<a class="viewcode-back" href="../../../modules/epbd_bert.dnabert2_epbd_crossattn.html#epbd_bert.dnabert2_epbd_crossattn.model.PositionWiseFeedForward">[docs]</a>
+<span class="k">class</span> <span class="nc">PositionWiseFeedForward</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">d_model</span><span class="p">,</span> <span class="n">d_ff</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">PositionWiseFeedForward</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fc1</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">d_model</span><span class="p">,</span> <span class="n">d_ff</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fc2</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">d_ff</span><span class="p">,</span> <span class="n">d_model</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">relu</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">()</span>
+
+<div class="viewcode-block" id="PositionWiseFeedForward.forward">
+<a class="viewcode-back" href="../../../modules/epbd_bert.dnabert2_epbd_crossattn.html#epbd_bert.dnabert2_epbd_crossattn.model.PositionWiseFeedForward.forward">[docs]</a>
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">fc2</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fc1</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="MultiModalLayer">
+<a class="viewcode-back" href="../../../modules/epbd_bert.dnabert2_epbd_crossattn.html#epbd_bert.dnabert2_epbd_crossattn.model.MultiModalLayer">[docs]</a>
+<span class="k">class</span> <span class="nc">MultiModalLayer</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">d_model</span><span class="p">,</span> <span class="n">num_heads</span><span class="p">,</span> <span class="n">d_ff</span><span class="p">,</span> <span class="n">p_dropout</span><span class="o">=</span><span class="mf">0.3</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">MultiModalLayer</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">self_attn</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">MultiheadAttention</span><span class="p">(</span>
+            <span class="n">embed_dim</span><span class="o">=</span><span class="n">d_model</span><span class="p">,</span>
+            <span class="n">num_heads</span><span class="o">=</span><span class="n">num_heads</span><span class="p">,</span>
+            <span class="n">dropout</span><span class="o">=</span><span class="n">p_dropout</span><span class="p">,</span>
+            <span class="n">batch_first</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cross_attn</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">MultiheadAttention</span><span class="p">(</span>
+            <span class="n">embed_dim</span><span class="o">=</span><span class="n">d_model</span><span class="p">,</span>
+            <span class="n">num_heads</span><span class="o">=</span><span class="n">num_heads</span><span class="p">,</span>
+            <span class="n">dropout</span><span class="o">=</span><span class="n">p_dropout</span><span class="p">,</span>
+            <span class="n">batch_first</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">feed_forward</span> <span class="o">=</span> <span class="n">PositionWiseFeedForward</span><span class="p">(</span><span class="n">d_model</span><span class="p">,</span> <span class="n">d_ff</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">epbd_embedding_norm</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">LayerNorm</span><span class="p">(</span><span class="n">d_model</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cross_attn_norm</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">LayerNorm</span><span class="p">(</span><span class="n">d_model</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">norm</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">LayerNorm</span><span class="p">(</span><span class="n">d_model</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dropout</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Dropout</span><span class="p">(</span><span class="n">p_dropout</span><span class="p">)</span>
+
+<div class="viewcode-block" id="MultiModalLayer.forward">
+<a class="viewcode-back" href="../../../modules/epbd_bert.dnabert2_epbd_crossattn.html#epbd_bert.dnabert2_epbd_crossattn.model.MultiModalLayer.forward">[docs]</a>
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">epbd_embedding</span><span class="p">,</span> <span class="n">seq_embedding</span><span class="p">,</span> <span class="n">key_padding_mask</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="c1"># b: batch_size, l1: enc_batch_seq_len, l2: epbd_seq_len  d_model: embedding_dim</span>
+        <span class="c1"># seq_embedding: b, l1, d_model</span>
+        <span class="c1"># epbd_embedding: b, l2, d_model</span>
+        <span class="n">attn_output</span><span class="p">,</span> <span class="n">self_attn_weights</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">self_attn</span><span class="p">(</span>
+            <span class="n">epbd_embedding</span><span class="p">,</span> <span class="n">epbd_embedding</span><span class="p">,</span> <span class="n">epbd_embedding</span>
+        <span class="p">)</span>
+        <span class="n">epbd_embedding</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">epbd_embedding_norm</span><span class="p">(</span>
+            <span class="n">epbd_embedding</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">dropout</span><span class="p">(</span><span class="n">attn_output</span><span class="p">)</span>
+        <span class="p">)</span>
+
+        <span class="c1"># print(epbd_embedding.shape, seq_embedding.shape)</span>
+        <span class="n">attn_output</span><span class="p">,</span> <span class="n">cross_attn_weights</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cross_attn</span><span class="p">(</span>
+            <span class="n">query</span><span class="o">=</span><span class="n">epbd_embedding</span><span class="p">,</span>
+            <span class="n">key</span><span class="o">=</span><span class="n">seq_embedding</span><span class="p">,</span>
+            <span class="n">value</span><span class="o">=</span><span class="n">seq_embedding</span><span class="p">,</span>
+            <span class="n">key_padding_mask</span><span class="o">=</span><span class="n">key_padding_mask</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="c1"># print(&quot;cross-attn-out&quot;, attn_output)</span>
+        <span class="n">epbd_embedding</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cross_attn_norm</span><span class="p">(</span>
+            <span class="n">epbd_embedding</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">dropout</span><span class="p">(</span><span class="n">attn_output</span><span class="p">)</span>
+        <span class="p">)</span>
+
+        <span class="n">ff_output</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">feed_forward</span><span class="p">(</span><span class="n">epbd_embedding</span><span class="p">)</span>
+        <span class="n">epbd_embedding</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">epbd_embedding</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">dropout</span><span class="p">(</span><span class="n">ff_output</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">epbd_embedding</span><span class="p">,</span> <span class="n">self_attn_weights</span><span class="p">,</span> <span class="n">cross_attn_weights</span></div>
+</div>
+
+
+
+<span class="c1"># batch_size, enc_batch_seq_len, epbd_seq_len = 4, 10, 8</span>
+<span class="c1"># d_model, num_heads, d_ff, p_dropout = 16, 4, 32, 0.3</span>
+<span class="c1"># m = MultiModalLayer(d_model, num_heads, d_ff, p_dropout)</span>
+<span class="c1"># seq_embed = torch.rand(batch_size, enc_batch_seq_len, d_model)</span>
+<span class="c1"># epbd_embed = torch.rand(batch_size, epbd_seq_len, d_model)</span>
+<span class="c1"># key_padding_mask = torch.rand(batch_size, enc_batch_seq_len) &lt; 0.5</span>
+<span class="c1"># print(epbd_embed.shape, seq_embed.shape, key_padding_mask.shape)</span>
+<span class="c1"># o = m(epbd_embed, seq_embed, key_padding_mask)</span>
+<span class="c1"># print(o[&quot;outputs .shape)</span>
+
+
+<div class="viewcode-block" id="EPBDEmbedder">
+<a class="viewcode-back" href="../../../modules/epbd_bert.dnabert2_epbd_crossattn.html#epbd_bert.dnabert2_epbd_crossattn.model.EPBDEmbedder">[docs]</a>
+<span class="k">class</span> <span class="nc">EPBDEmbedder</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">in_channels</span><span class="p">,</span> <span class="n">d_model</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">9</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">EPBDEmbedder</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">epbd_feature_extractor</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Conv1d</span><span class="p">(</span>
+            <span class="n">in_channels</span><span class="o">=</span><span class="n">in_channels</span><span class="p">,</span>
+            <span class="n">out_channels</span><span class="o">=</span><span class="n">d_model</span><span class="p">,</span>
+            <span class="n">kernel_size</span><span class="o">=</span><span class="n">kernel_size</span><span class="p">,</span>
+            <span class="n">padding</span><span class="o">=</span><span class="s2">&quot;same&quot;</span><span class="p">,</span>
+        <span class="p">)</span>
+
+<div class="viewcode-block" id="EPBDEmbedder.forward">
+<a class="viewcode-back" href="../../../modules/epbd_bert.dnabert2_epbd_crossattn.html#epbd_bert.dnabert2_epbd_crossattn.model.EPBDEmbedder.forward">[docs]</a>
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="c1"># x is epbd_features: batch_size, in_channels, epbd_seq_len</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">epbd_feature_extractor</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># batch_size, d_model, epbd_seq_len</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">permute</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># batch_size, epbd_seq_len, d_model</span>
+        <span class="k">return</span> <span class="n">x</span></div>
+</div>
+
+
+
+<span class="c1"># m = EPBDEmbedder(6, 9, 3)</span>
+<span class="c1"># inp = torch.rand(10, 6, 15)</span>
+<span class="c1"># o = m(inp)</span>
+<span class="c1"># print(o.shape)</span>
+
+
+<div class="viewcode-block" id="PoolingLayer">
+<a class="viewcode-back" href="../../../modules/epbd_bert.dnabert2_epbd_crossattn.html#epbd_bert.dnabert2_epbd_crossattn.model.PoolingLayer">[docs]</a>
+<span class="k">class</span> <span class="nc">PoolingLayer</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">d_model</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">dropout</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.3</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">PoolingLayer</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dropout</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Dropout</span><span class="p">(</span><span class="n">p</span><span class="o">=</span><span class="n">dropout</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fc</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">d_model</span><span class="p">,</span> <span class="n">d_model</span><span class="p">)</span>
+
+<div class="viewcode-block" id="PoolingLayer.forward">
+<a class="viewcode-back" href="../../../modules/epbd_bert.dnabert2_epbd_crossattn.html#epbd_bert.dnabert2_epbd_crossattn.model.PoolingLayer.forward">[docs]</a>
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="c1"># batch_size, seq_len, embedding_dim</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># applying mean pooling</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fc</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dropout</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="c1"># print(x.shape)# batch_size, d_model</span>
+        <span class="k">return</span> <span class="n">x</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="EPBDDnabert2Model">
+<a class="viewcode-back" href="../../../modules/epbd_bert.dnabert2_epbd_crossattn.html#epbd_bert.dnabert2_epbd_crossattn.model.EPBDDnabert2Model">[docs]</a>
+<span class="k">class</span> <span class="nc">EPBDDnabert2Model</span><span class="p">(</span><span class="n">lightning</span><span class="o">.</span><span class="n">LightningModule</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">configs</span><span class="p">:</span> <span class="n">EPBDConfigs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;_summary_</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            configs (EPBDConfigs): _description_</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">EPBDDnabert2Model</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">save_hyperparameters</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">seq_encoder</span> <span class="o">=</span> <span class="n">get_dnabert2_pretrained_model</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">epbd_embedder</span> <span class="o">=</span> <span class="n">EPBDEmbedder</span><span class="p">(</span>
+            <span class="n">in_channels</span><span class="o">=</span><span class="n">configs</span><span class="o">.</span><span class="n">epbd_feature_channels</span><span class="p">,</span>
+            <span class="n">d_model</span><span class="o">=</span><span class="n">configs</span><span class="o">.</span><span class="n">d_model</span><span class="p">,</span>
+            <span class="n">kernel_size</span><span class="o">=</span><span class="n">configs</span><span class="o">.</span><span class="n">epbd_embedder_kernel_size</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">multi_modal_layer</span> <span class="o">=</span> <span class="n">MultiModalLayer</span><span class="p">(</span>
+            <span class="n">d_model</span><span class="o">=</span><span class="n">configs</span><span class="o">.</span><span class="n">d_model</span><span class="p">,</span>
+            <span class="n">num_heads</span><span class="o">=</span><span class="n">configs</span><span class="o">.</span><span class="n">num_heads</span><span class="p">,</span>
+            <span class="n">d_ff</span><span class="o">=</span><span class="n">configs</span><span class="o">.</span><span class="n">d_ff</span><span class="p">,</span>
+            <span class="n">p_dropout</span><span class="o">=</span><span class="n">configs</span><span class="o">.</span><span class="n">p_dropout</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pooling_layer</span> <span class="o">=</span> <span class="n">PoolingLayer</span><span class="p">(</span>
+            <span class="n">d_model</span><span class="o">=</span><span class="n">configs</span><span class="o">.</span><span class="n">d_model</span><span class="p">,</span> <span class="n">dropout</span><span class="o">=</span><span class="n">configs</span><span class="o">.</span><span class="n">p_dropout</span>
+        <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">classifier</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">configs</span><span class="o">.</span><span class="n">d_model</span><span class="p">,</span> <span class="n">configs</span><span class="o">.</span><span class="n">n_classes</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">criterion</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">BCEWithLogitsLoss</span><span class="p">(</span>
+            <span class="n">weight</span><span class="o">=</span><span class="n">compute_multi_class_weights</span><span class="p">()</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">configs</span> <span class="o">=</span> <span class="n">configs</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">val_aucrocs</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">val_losses</span> <span class="o">=</span> <span class="p">[]</span>
+
+<div class="viewcode-block" id="EPBDDnabert2Model.forward">
+<a class="viewcode-back" href="../../../modules/epbd_bert.dnabert2_epbd_crossattn.html#epbd_bert.dnabert2_epbd_crossattn.model.EPBDDnabert2Model.forward">[docs]</a>
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inputs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;_summary_</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            inputs (_type_): _description_</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            _type_: _description_</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">targets</span> <span class="o">=</span> <span class="n">inputs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;labels&quot;</span><span class="p">)</span>
+        <span class="n">epbd_features</span> <span class="o">=</span> <span class="n">inputs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;epbd_features&quot;</span><span class="p">)</span>
+
+        <span class="n">seq_embedding</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">seq_encoder</span><span class="p">(</span><span class="o">**</span><span class="n">inputs</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="c1"># print(&quot;seq_embed:&quot;, seq_embedding.shape)  # b, batch_seq_len, d_model</span>
+        <span class="c1"># raise</span>
+
+        <span class="n">attention_mask</span> <span class="o">=</span> <span class="n">inputs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;attention_mask&quot;</span><span class="p">)</span>
+        <span class="n">attention_mask</span> <span class="o">=</span> <span class="o">~</span><span class="n">attention_mask</span><span class="o">.</span><span class="n">bool</span><span class="p">()</span>
+        <span class="n">epbd_embedding</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">epbd_embedder</span><span class="p">(</span><span class="n">epbd_features</span><span class="p">)</span>
+        <span class="c1"># print(&quot;epbd_embed&quot;, epbd_embedding.shape)  # b, 200, d_model</span>
+
+        <span class="n">multi_modal_out</span><span class="p">,</span> <span class="n">self_attn_weights</span><span class="p">,</span> <span class="n">cross_attn_weights</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">multi_modal_layer</span><span class="p">(</span>
+            <span class="n">epbd_embedding</span><span class="p">,</span>
+            <span class="n">seq_embedding</span><span class="p">,</span>
+            <span class="n">attention_mask</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="c1"># print(</span>
+        <span class="c1">#     f&quot;multi_modal_out: {multi_modal_out.shape}&quot;,  # b, 200, d_model</span>
+        <span class="c1">#     f&quot;self_attn_weights: {self_attn_weights.shape}&quot;,  # b, 200, 200</span>
+        <span class="c1">#     f&quot;cross_attn_weights: {cross_attn_weights.shape}&quot;,  # b, 200, batch_seq_len</span>
+        <span class="c1"># )</span>
+
+        <span class="n">pooled_output</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pooling_layer</span><span class="p">(</span><span class="n">multi_modal_out</span><span class="p">)</span>
+        <span class="c1"># print(pooled_output.shape)  # batch_size, 768</span>
+        <span class="n">logits</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">classifier</span><span class="p">(</span><span class="n">pooled_output</span><span class="p">)</span>
+        <span class="c1"># print(logits.shape, targets.shape)</span>
+        <span class="k">return</span> <span class="n">logits</span><span class="p">,</span> <span class="n">targets</span></div>
+
+
+<div class="viewcode-block" id="EPBDDnabert2Model.calculate_loss">
+<a class="viewcode-back" href="../../../modules/epbd_bert.dnabert2_epbd_crossattn.html#epbd_bert.dnabert2_epbd_crossattn.model.EPBDDnabert2Model.calculate_loss">[docs]</a>
+    <span class="k">def</span> <span class="nf">calculate_loss</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">logits</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">targets</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;_summary_</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            logits (torch.Tensor): _description_</span>
+<span class="sd">            targets (torch.Tensor): _description_</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            float: _description_</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">loss</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">criterion</span><span class="p">(</span><span class="n">logits</span><span class="p">,</span> <span class="n">targets</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">loss</span></div>
+
+
+<div class="viewcode-block" id="EPBDDnabert2Model.training_step">
+<a class="viewcode-back" href="../../../modules/epbd_bert.dnabert2_epbd_crossattn.html#epbd_bert.dnabert2_epbd_crossattn.model.EPBDDnabert2Model.training_step">[docs]</a>
+    <span class="k">def</span> <span class="nf">training_step</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">,</span> <span class="n">batch_idx</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;_summary_</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            batch (_type_): _description_</span>
+<span class="sd">            batch_idx (_type_): _description_</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            float: _description_</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">logits</span><span class="p">,</span> <span class="n">targets</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="n">batch</span><span class="p">)</span>
+        <span class="n">loss</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">calculate_loss</span><span class="p">(</span><span class="n">logits</span><span class="p">,</span> <span class="n">targets</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s2">&quot;train_loss&quot;</span><span class="p">,</span> <span class="n">loss</span><span class="o">.</span><span class="n">item</span><span class="p">(),</span> <span class="n">prog_bar</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">on_step</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">on_epoch</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">loss</span></div>
+
+
+<div class="viewcode-block" id="EPBDDnabert2Model.validation_step">
+<a class="viewcode-back" href="../../../modules/epbd_bert.dnabert2_epbd_crossattn.html#epbd_bert.dnabert2_epbd_crossattn.model.EPBDDnabert2Model.validation_step">[docs]</a>
+    <span class="k">def</span> <span class="nf">validation_step</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">,</span> <span class="n">batch_idx</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;_summary_</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            batch (_type_): _description_</span>
+<span class="sd">            batch_idx (_type_): _description_</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            float: _description_</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">logits</span><span class="p">,</span> <span class="n">targets</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="n">batch</span><span class="p">)</span>
+        <span class="n">loss</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">calculate_loss</span><span class="p">(</span><span class="n">logits</span><span class="p">,</span> <span class="n">targets</span><span class="p">)</span>
+        <span class="n">probs</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">(</span><span class="n">logits</span><span class="p">)</span>  <span class="c1"># or softmax, depending on your problem and setup</span>
+        <span class="n">auc_roc</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">roc_auc_score</span><span class="p">(</span>
+            <span class="n">targets</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">(),</span>
+            <span class="n">probs</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">(),</span>
+            <span class="n">average</span><span class="o">=</span><span class="s2">&quot;micro&quot;</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">val_aucrocs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">auc_roc</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">val_losses</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">loss</span><span class="o">.</span><span class="n">item</span><span class="p">())</span></div>
+
+
+<div class="viewcode-block" id="EPBDDnabert2Model.on_validation_epoch_end">
+<a class="viewcode-back" href="../../../modules/epbd_bert.dnabert2_epbd_crossattn.html#epbd_bert.dnabert2_epbd_crossattn.model.EPBDDnabert2Model.on_validation_epoch_end">[docs]</a>
+    <span class="k">def</span> <span class="nf">on_validation_epoch_end</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;_summary_&quot;&quot;&quot;</span>
+        <span class="n">val_avg_aucroc</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">val_aucrocs</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+        <span class="n">val_avg_loss</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">val_losses</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">log_dict</span><span class="p">(</span>
+            <span class="nb">dict</span><span class="p">(</span><span class="n">val_aucroc</span><span class="o">=</span><span class="n">val_avg_aucroc</span><span class="p">,</span> <span class="n">val_loss</span><span class="o">=</span><span class="n">val_avg_loss</span><span class="p">),</span>
+            <span class="n">sync_dist</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+            <span class="n">prog_bar</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="n">on_step</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+            <span class="n">on_epoch</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">val_aucrocs</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">val_losses</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="EPBDDnabert2Model.configure_optimizers">
+<a class="viewcode-back" href="../../../modules/epbd_bert.dnabert2_epbd_crossattn.html#epbd_bert.dnabert2_epbd_crossattn.model.EPBDDnabert2Model.configure_optimizers">[docs]</a>
+    <span class="k">def</span> <span class="nf">configure_optimizers</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;_summary_</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            _type_: _description_</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">AdamW</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span>
+            <span class="n">lr</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">configs</span><span class="o">.</span><span class="n">learning_rate</span><span class="p">,</span>
+            <span class="n">weight_decay</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">configs</span><span class="o">.</span><span class="n">weight_decay</span><span class="p">,</span>
+        <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="EPBDDnabert2Model.load_pretrained_model">
+<a class="viewcode-back" href="../../../modules/epbd_bert.dnabert2_epbd_crossattn.html#epbd_bert.dnabert2_epbd_crossattn.model.EPBDDnabert2Model.load_pretrained_model">[docs]</a>
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">load_pretrained_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">checkpoint_path</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;eval&quot;</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;_summary_</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            checkpoint_path (_type_): _description_</span>
+<span class="sd">            mode (str, optional): _description_. Defaults to &quot;eval&quot;.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            _type_: _description_</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># mode: eval, train</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">load_from_checkpoint</span><span class="p">(</span><span class="n">checkpoint_path</span><span class="p">)</span>
+        <span class="c1"># model.to(device)</span>
+        <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="s2">&quot;eval&quot;</span><span class="p">:</span>
+            <span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">model</span></div>
+</div>
+
+
+
+<span class="c1"># Q: batch_size, seq_len1, d_model</span>
+<span class="c1"># K, V: batch_size, seq_len2, d_model=786</span>
+<span class="c1"># batch_size, seq_len2, 6 # coord+flips</span>
+</pre></div>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Anowarul Kabir, Manish Bhattarai, Kim Rasmussen, Amarda Shehu, Alan Bishop, Boian Alexandrov and Anny Usheva
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023, LANL.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=bd9e20870c6007c4c509"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=bd9e20870c6007c4c509"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

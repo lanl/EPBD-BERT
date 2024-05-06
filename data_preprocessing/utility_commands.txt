@@ -1,0 +1,5 @@
+# to stdout first 10 lines of a gzipped file
+zcat data/processed/merged.sorted.gz | head -10
+
+# count the number of lines in a gzipped file
+zcat data/processed/merged.sorted.gz | wc -l

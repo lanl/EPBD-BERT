@@ -1,0 +1,870 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>epbd_bert.dnabert2_epbd_crossattn package &#8212; EPBD-BERT 1.0.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=eafc0fe6" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=bd9e20870c6007c4c509" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=bd9e20870c6007c4c509" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=bd9e20870c6007c4c509"></script>
+
+    <script src="../_static/documentation_options.js?v=f9c1cefe"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'modules/epbd_bert.dnabert2_epbd_crossattn';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="epbd_bert.utility package" href="epbd_bert.utility.html" />
+    <link rel="prev" title="epbd_bert.dnabert2_epbd package" href="epbd_bert.dnabert2_epbd.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <header>
+  
+    <div class="bd-header navbar navbar-expand-lg bd-navbar">
+    </div>
+  
+  </header>
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">EPBD-BERT 1.0.0 documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="modules.html">epbd_bert</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="epbd_bert.html">epbd_bert package</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="epbd_bert.datasets.html">epbd_bert.datasets package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="epbd_bert.dnabert2_classifier.html">epbd_bert.dnabert2_classifier package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="epbd_bert.dnabert2_epbd.html">epbd_bert.dnabert2_epbd package</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">epbd_bert.dnabert2_epbd_crossattn package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="epbd_bert.utility.html">epbd_bert.utility package</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/modules/epbd_bert.dnabert2_epbd_crossattn.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>epbd_bert.dnabert2_epbd_crossattn package</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodules">Submodules</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-epbd_bert.dnabert2_epbd_crossattn.configs">epbd_bert.dnabert2_epbd_crossattn.configs module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#epbd_bert.dnabert2_epbd_crossattn.configs.EPBDConfigs"><code class="docutils literal notranslate"><span class="pre">EPBDConfigs</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#epbd_bert.dnabert2_epbd_crossattn.configs.EPBDConfigs.best_model_monitor"><code class="docutils literal notranslate"><span class="pre">EPBDConfigs.best_model_monitor</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#epbd_bert.dnabert2_epbd_crossattn.configs.EPBDConfigs.best_model_monitor_mode"><code class="docutils literal notranslate"><span class="pre">EPBDConfigs.best_model_monitor_mode</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#epbd_bert.dnabert2_epbd_crossattn.configs.EPBDConfigs.d_ff"><code class="docutils literal notranslate"><span class="pre">EPBDConfigs.d_ff</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#epbd_bert.dnabert2_epbd_crossattn.configs.EPBDConfigs.d_model"><code class="docutils literal notranslate"><span class="pre">EPBDConfigs.d_model</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#epbd_bert.dnabert2_epbd_crossattn.configs.EPBDConfigs.epbd_embedder_kernel_size"><code class="docutils literal notranslate"><span class="pre">EPBDConfigs.epbd_embedder_kernel_size</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#epbd_bert.dnabert2_epbd_crossattn.configs.EPBDConfigs.epbd_feature_channels"><code class="docutils literal notranslate"><span class="pre">EPBDConfigs.epbd_feature_channels</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#epbd_bert.dnabert2_epbd_crossattn.configs.EPBDConfigs.n_classes"><code class="docutils literal notranslate"><span class="pre">EPBDConfigs.n_classes</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#epbd_bert.dnabert2_epbd_crossattn.configs.EPBDConfigs.need_weights"><code class="docutils literal notranslate"><span class="pre">EPBDConfigs.need_weights</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#epbd_bert.dnabert2_epbd_crossattn.configs.EPBDConfigs.num_heads"><code class="docutils literal notranslate"><span class="pre">EPBDConfigs.num_heads</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#epbd_bert.dnabert2_epbd_crossattn.configs.EPBDConfigs.p_dropout"><code class="docutils literal notranslate"><span class="pre">EPBDConfigs.p_dropout</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#epbd_bert.dnabert2_epbd_crossattn.configs.TrainingConfigs"><code class="docutils literal notranslate"><span class="pre">TrainingConfigs</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#epbd_bert.dnabert2_epbd_crossattn.configs.TrainingConfigs.batch_size"><code class="docutils literal notranslate"><span class="pre">TrainingConfigs.batch_size</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#epbd_bert.dnabert2_epbd_crossattn.configs.TrainingConfigs.learning_rate"><code class="docutils literal notranslate"><span class="pre">TrainingConfigs.learning_rate</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#epbd_bert.dnabert2_epbd_crossattn.configs.TrainingConfigs.max_epochs"><code class="docutils literal notranslate"><span class="pre">TrainingConfigs.max_epochs</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#epbd_bert.dnabert2_epbd_crossattn.configs.TrainingConfigs.num_workers"><code class="docutils literal notranslate"><span class="pre">TrainingConfigs.num_workers</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#epbd_bert.dnabert2_epbd_crossattn.configs.TrainingConfigs.weight_decay"><code class="docutils literal notranslate"><span class="pre">TrainingConfigs.weight_decay</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-epbd_bert.dnabert2_epbd_crossattn.model">epbd_bert.dnabert2_epbd_crossattn.model module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#epbd_bert.dnabert2_epbd_crossattn.model.EPBDDnabert2Model"><code class="docutils literal notranslate"><span class="pre">EPBDDnabert2Model</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#epbd_bert.dnabert2_epbd_crossattn.model.EPBDDnabert2Model.calculate_loss"><code class="docutils literal notranslate"><span class="pre">EPBDDnabert2Model.calculate_loss()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#epbd_bert.dnabert2_epbd_crossattn.model.EPBDDnabert2Model.configure_optimizers"><code class="docutils literal notranslate"><span class="pre">EPBDDnabert2Model.configure_optimizers()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#epbd_bert.dnabert2_epbd_crossattn.model.EPBDDnabert2Model.forward"><code class="docutils literal notranslate"><span class="pre">EPBDDnabert2Model.forward()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#epbd_bert.dnabert2_epbd_crossattn.model.EPBDDnabert2Model.load_pretrained_model"><code class="docutils literal notranslate"><span class="pre">EPBDDnabert2Model.load_pretrained_model()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#epbd_bert.dnabert2_epbd_crossattn.model.EPBDDnabert2Model.on_validation_epoch_end"><code class="docutils literal notranslate"><span class="pre">EPBDDnabert2Model.on_validation_epoch_end()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#epbd_bert.dnabert2_epbd_crossattn.model.EPBDDnabert2Model.training_step"><code class="docutils literal notranslate"><span class="pre">EPBDDnabert2Model.training_step()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#epbd_bert.dnabert2_epbd_crossattn.model.EPBDDnabert2Model.validation_step"><code class="docutils literal notranslate"><span class="pre">EPBDDnabert2Model.validation_step()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#epbd_bert.dnabert2_epbd_crossattn.model.EPBDEmbedder"><code class="docutils literal notranslate"><span class="pre">EPBDEmbedder</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#epbd_bert.dnabert2_epbd_crossattn.model.EPBDEmbedder.forward"><code class="docutils literal notranslate"><span class="pre">EPBDEmbedder.forward()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#epbd_bert.dnabert2_epbd_crossattn.model.MultiModalLayer"><code class="docutils literal notranslate"><span class="pre">MultiModalLayer</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#epbd_bert.dnabert2_epbd_crossattn.model.MultiModalLayer.forward"><code class="docutils literal notranslate"><span class="pre">MultiModalLayer.forward()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#epbd_bert.dnabert2_epbd_crossattn.model.PoolingLayer"><code class="docutils literal notranslate"><span class="pre">PoolingLayer</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#epbd_bert.dnabert2_epbd_crossattn.model.PoolingLayer.forward"><code class="docutils literal notranslate"><span class="pre">PoolingLayer.forward()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#epbd_bert.dnabert2_epbd_crossattn.model.PositionWiseFeedForward"><code class="docutils literal notranslate"><span class="pre">PositionWiseFeedForward</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#epbd_bert.dnabert2_epbd_crossattn.model.PositionWiseFeedForward.forward"><code class="docutils literal notranslate"><span class="pre">PositionWiseFeedForward.forward()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-epbd_bert.dnabert2_epbd_crossattn.test">epbd_bert.dnabert2_epbd_crossattn.test module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#epbd_bert.dnabert2_epbd_crossattn.test.compute_predictions"><code class="docutils literal notranslate"><span class="pre">compute_predictions()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-epbd_bert.dnabert2_epbd_crossattn.train_lightning">epbd_bert.dnabert2_epbd_crossattn.train_lightning module</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-epbd_bert.dnabert2_epbd_crossattn">Module contents</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="epbd-bert-dnabert2-epbd-crossattn-package">
+<h1>epbd_bert.dnabert2_epbd_crossattn package<a class="headerlink" href="#epbd-bert-dnabert2-epbd-crossattn-package" title="Link to this heading">#</a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">#</a></h2>
+</section>
+<section id="module-epbd_bert.dnabert2_epbd_crossattn.configs">
+<span id="epbd-bert-dnabert2-epbd-crossattn-configs-module"></span><h2>epbd_bert.dnabert2_epbd_crossattn.configs module<a class="headerlink" href="#module-epbd_bert.dnabert2_epbd_crossattn.configs" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="epbd_bert.dnabert2_epbd_crossattn.configs.EPBDConfigs">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">epbd_bert.dnabert2_epbd_crossattn.configs.</span></span><span class="sig-name descname"><span class="pre">EPBDConfigs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">32</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_workers</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">learning_rate</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1e-05</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight_decay</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.01</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_epochs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">d_model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">256</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epbd_feature_channels</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epbd_embedder_kernel_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">11</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_heads</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">8</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">d_ff</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">768</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p_dropout</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">need_weights</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_classes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">690</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">best_model_monitor</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'val_loss'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">best_model_monitor_mode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'min'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/epbd_bert/dnabert2_epbd_crossattn/configs.html#EPBDConfigs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#epbd_bert.dnabert2_epbd_crossattn.configs.EPBDConfigs" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#epbd_bert.dnabert2_epbd_crossattn.configs.TrainingConfigs" title="epbd_bert.dnabert2_epbd_crossattn.configs.TrainingConfigs"><code class="xref py py-class docutils literal notranslate"><span class="pre">TrainingConfigs</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="epbd_bert.dnabert2_epbd_crossattn.configs.EPBDConfigs.best_model_monitor">
+<span class="sig-name descname"><span class="pre">best_model_monitor</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'val_loss'</span></em><a class="headerlink" href="#epbd_bert.dnabert2_epbd_crossattn.configs.EPBDConfigs.best_model_monitor" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="epbd_bert.dnabert2_epbd_crossattn.configs.EPBDConfigs.best_model_monitor_mode">
+<span class="sig-name descname"><span class="pre">best_model_monitor_mode</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'min'</span></em><a class="headerlink" href="#epbd_bert.dnabert2_epbd_crossattn.configs.EPBDConfigs.best_model_monitor_mode" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="epbd_bert.dnabert2_epbd_crossattn.configs.EPBDConfigs.d_ff">
+<span class="sig-name descname"><span class="pre">d_ff</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">768</span></em><a class="headerlink" href="#epbd_bert.dnabert2_epbd_crossattn.configs.EPBDConfigs.d_ff" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="epbd_bert.dnabert2_epbd_crossattn.configs.EPBDConfigs.d_model">
+<span class="sig-name descname"><span class="pre">d_model</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">256</span></em><a class="headerlink" href="#epbd_bert.dnabert2_epbd_crossattn.configs.EPBDConfigs.d_model" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="epbd_bert.dnabert2_epbd_crossattn.configs.EPBDConfigs.epbd_embedder_kernel_size">
+<span class="sig-name descname"><span class="pre">epbd_embedder_kernel_size</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">11</span></em><a class="headerlink" href="#epbd_bert.dnabert2_epbd_crossattn.configs.EPBDConfigs.epbd_embedder_kernel_size" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="epbd_bert.dnabert2_epbd_crossattn.configs.EPBDConfigs.epbd_feature_channels">
+<span class="sig-name descname"><span class="pre">epbd_feature_channels</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#epbd_bert.dnabert2_epbd_crossattn.configs.EPBDConfigs.epbd_feature_channels" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="epbd_bert.dnabert2_epbd_crossattn.configs.EPBDConfigs.n_classes">
+<span class="sig-name descname"><span class="pre">n_classes</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">690</span></em><a class="headerlink" href="#epbd_bert.dnabert2_epbd_crossattn.configs.EPBDConfigs.n_classes" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="epbd_bert.dnabert2_epbd_crossattn.configs.EPBDConfigs.need_weights">
+<span class="sig-name descname"><span class="pre">need_weights</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#epbd_bert.dnabert2_epbd_crossattn.configs.EPBDConfigs.need_weights" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="epbd_bert.dnabert2_epbd_crossattn.configs.EPBDConfigs.num_heads">
+<span class="sig-name descname"><span class="pre">num_heads</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">8</span></em><a class="headerlink" href="#epbd_bert.dnabert2_epbd_crossattn.configs.EPBDConfigs.num_heads" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="epbd_bert.dnabert2_epbd_crossattn.configs.EPBDConfigs.p_dropout">
+<span class="sig-name descname"><span class="pre">p_dropout</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0.1</span></em><a class="headerlink" href="#epbd_bert.dnabert2_epbd_crossattn.configs.EPBDConfigs.p_dropout" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="epbd_bert.dnabert2_epbd_crossattn.configs.TrainingConfigs">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">epbd_bert.dnabert2_epbd_crossattn.configs.</span></span><span class="sig-name descname"><span class="pre">TrainingConfigs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">32</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_workers</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">learning_rate</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1e-05</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight_decay</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.01</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_epochs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">5</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/epbd_bert/dnabert2_epbd_crossattn/configs.html#TrainingConfigs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#epbd_bert.dnabert2_epbd_crossattn.configs.TrainingConfigs" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="epbd_bert.dnabert2_epbd_crossattn.configs.TrainingConfigs.batch_size">
+<span class="sig-name descname"><span class="pre">batch_size</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">32</span></em><a class="headerlink" href="#epbd_bert.dnabert2_epbd_crossattn.configs.TrainingConfigs.batch_size" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="epbd_bert.dnabert2_epbd_crossattn.configs.TrainingConfigs.learning_rate">
+<span class="sig-name descname"><span class="pre">learning_rate</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1e-05</span></em><a class="headerlink" href="#epbd_bert.dnabert2_epbd_crossattn.configs.TrainingConfigs.learning_rate" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="epbd_bert.dnabert2_epbd_crossattn.configs.TrainingConfigs.max_epochs">
+<span class="sig-name descname"><span class="pre">max_epochs</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">5</span></em><a class="headerlink" href="#epbd_bert.dnabert2_epbd_crossattn.configs.TrainingConfigs.max_epochs" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="epbd_bert.dnabert2_epbd_crossattn.configs.TrainingConfigs.num_workers">
+<span class="sig-name descname"><span class="pre">num_workers</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#epbd_bert.dnabert2_epbd_crossattn.configs.TrainingConfigs.num_workers" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="epbd_bert.dnabert2_epbd_crossattn.configs.TrainingConfigs.weight_decay">
+<span class="sig-name descname"><span class="pre">weight_decay</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0.01</span></em><a class="headerlink" href="#epbd_bert.dnabert2_epbd_crossattn.configs.TrainingConfigs.weight_decay" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-epbd_bert.dnabert2_epbd_crossattn.model">
+<span id="epbd-bert-dnabert2-epbd-crossattn-model-module"></span><h2>epbd_bert.dnabert2_epbd_crossattn.model module<a class="headerlink" href="#module-epbd_bert.dnabert2_epbd_crossattn.model" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="epbd_bert.dnabert2_epbd_crossattn.model.EPBDDnabert2Model">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">epbd_bert.dnabert2_epbd_crossattn.model.</span></span><span class="sig-name descname"><span class="pre">EPBDDnabert2Model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">configs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#epbd_bert.dnabert2_epbd_crossattn.configs.EPBDConfigs" title="epbd_bert.dnabert2_epbd_crossattn.configs.EPBDConfigs"><span class="pre">EPBDConfigs</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/epbd_bert/dnabert2_epbd_crossattn/model.html#EPBDDnabert2Model"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#epbd_bert.dnabert2_epbd_crossattn.model.EPBDDnabert2Model" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">LightningModule</span></code></p>
+<p>_summary_</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>configs</strong> (<a class="reference internal" href="#epbd_bert.dnabert2_epbd_crossattn.configs.EPBDConfigs" title="epbd_bert.dnabert2_epbd_crossattn.configs.EPBDConfigs"><em>EPBDConfigs</em></a>) – _description_</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="epbd_bert.dnabert2_epbd_crossattn.model.EPBDDnabert2Model.calculate_loss">
+<span class="sig-name descname"><span class="pre">calculate_loss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">logits</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">targets</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="../_modules/epbd_bert/dnabert2_epbd_crossattn/model.html#EPBDDnabert2Model.calculate_loss"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#epbd_bert.dnabert2_epbd_crossattn.model.EPBDDnabert2Model.calculate_loss" title="Link to this definition">#</a></dt>
+<dd><p>_summary_</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>logits</strong> (<em>torch.Tensor</em>) – _description_</p></li>
+<li><p><strong>targets</strong> (<em>torch.Tensor</em>) – _description_</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>_description_</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="epbd_bert.dnabert2_epbd_crossattn.model.EPBDDnabert2Model.configure_optimizers">
+<span class="sig-name descname"><span class="pre">configure_optimizers</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/epbd_bert/dnabert2_epbd_crossattn/model.html#EPBDDnabert2Model.configure_optimizers"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#epbd_bert.dnabert2_epbd_crossattn.model.EPBDDnabert2Model.configure_optimizers" title="Link to this definition">#</a></dt>
+<dd><p>_summary_</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>_description_</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>_type_</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="epbd_bert.dnabert2_epbd_crossattn.model.EPBDDnabert2Model.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inputs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/epbd_bert/dnabert2_epbd_crossattn/model.html#EPBDDnabert2Model.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#epbd_bert.dnabert2_epbd_crossattn.model.EPBDDnabert2Model.forward" title="Link to this definition">#</a></dt>
+<dd><p>_summary_</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>inputs</strong> (<em>_type_</em>) – _description_</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>_description_</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>_type_</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="epbd_bert.dnabert2_epbd_crossattn.model.EPBDDnabert2Model.load_pretrained_model">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">load_pretrained_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">checkpoint_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'eval'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/epbd_bert/dnabert2_epbd_crossattn/model.html#EPBDDnabert2Model.load_pretrained_model"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#epbd_bert.dnabert2_epbd_crossattn.model.EPBDDnabert2Model.load_pretrained_model" title="Link to this definition">#</a></dt>
+<dd><p>_summary_</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>checkpoint_path</strong> (<em>_type_</em>) – _description_</p></li>
+<li><p><strong>mode</strong> (<em>str</em><em>, </em><em>optional</em>) – _description_. Defaults to “eval”.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>_description_</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>_type_</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="epbd_bert.dnabert2_epbd_crossattn.model.EPBDDnabert2Model.on_validation_epoch_end">
+<span class="sig-name descname"><span class="pre">on_validation_epoch_end</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/epbd_bert/dnabert2_epbd_crossattn/model.html#EPBDDnabert2Model.on_validation_epoch_end"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#epbd_bert.dnabert2_epbd_crossattn.model.EPBDDnabert2Model.on_validation_epoch_end" title="Link to this definition">#</a></dt>
+<dd><p>_summary_</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="epbd_bert.dnabert2_epbd_crossattn.model.EPBDDnabert2Model.training_step">
+<span class="sig-name descname"><span class="pre">training_step</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">batch</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_idx</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="../_modules/epbd_bert/dnabert2_epbd_crossattn/model.html#EPBDDnabert2Model.training_step"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#epbd_bert.dnabert2_epbd_crossattn.model.EPBDDnabert2Model.training_step" title="Link to this definition">#</a></dt>
+<dd><p>_summary_</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>batch</strong> (<em>_type_</em>) – _description_</p></li>
+<li><p><strong>batch_idx</strong> (<em>_type_</em>) – _description_</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>_description_</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="epbd_bert.dnabert2_epbd_crossattn.model.EPBDDnabert2Model.validation_step">
+<span class="sig-name descname"><span class="pre">validation_step</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">batch</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_idx</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="../_modules/epbd_bert/dnabert2_epbd_crossattn/model.html#EPBDDnabert2Model.validation_step"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#epbd_bert.dnabert2_epbd_crossattn.model.EPBDDnabert2Model.validation_step" title="Link to this definition">#</a></dt>
+<dd><p>_summary_</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>batch</strong> (<em>_type_</em>) – _description_</p></li>
+<li><p><strong>batch_idx</strong> (<em>_type_</em>) – _description_</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>_description_</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="epbd_bert.dnabert2_epbd_crossattn.model.EPBDEmbedder">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">epbd_bert.dnabert2_epbd_crossattn.model.</span></span><span class="sig-name descname"><span class="pre">EPBDEmbedder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">in_channels</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">d_model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kernel_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">9</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/epbd_bert/dnabert2_epbd_crossattn/model.html#EPBDEmbedder"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#epbd_bert.dnabert2_epbd_crossattn.model.EPBDEmbedder" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code></p>
+<p>Initializes internal Module state, shared by both nn.Module and ScriptModule.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="epbd_bert.dnabert2_epbd_crossattn.model.EPBDEmbedder.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/epbd_bert/dnabert2_epbd_crossattn/model.html#EPBDEmbedder.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#epbd_bert.dnabert2_epbd_crossattn.model.EPBDEmbedder.forward" title="Link to this definition">#</a></dt>
+<dd><p>Defines the computation performed at every call.</p>
+<p>Should be overridden by all subclasses.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Although the recipe for forward pass needs to be defined within
+this function, one should call the <code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code> instance afterwards
+instead of this since the former takes care of running the
+registered hooks while the latter silently ignores them.</p>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="epbd_bert.dnabert2_epbd_crossattn.model.MultiModalLayer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">epbd_bert.dnabert2_epbd_crossattn.model.</span></span><span class="sig-name descname"><span class="pre">MultiModalLayer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">d_model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_heads</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">d_ff</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p_dropout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.3</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/epbd_bert/dnabert2_epbd_crossattn/model.html#MultiModalLayer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#epbd_bert.dnabert2_epbd_crossattn.model.MultiModalLayer" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code></p>
+<p>Initializes internal Module state, shared by both nn.Module and ScriptModule.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="epbd_bert.dnabert2_epbd_crossattn.model.MultiModalLayer.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">epbd_embedding</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seq_embedding</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key_padding_mask</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/epbd_bert/dnabert2_epbd_crossattn/model.html#MultiModalLayer.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#epbd_bert.dnabert2_epbd_crossattn.model.MultiModalLayer.forward" title="Link to this definition">#</a></dt>
+<dd><p>Defines the computation performed at every call.</p>
+<p>Should be overridden by all subclasses.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Although the recipe for forward pass needs to be defined within
+this function, one should call the <code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code> instance afterwards
+instead of this since the former takes care of running the
+registered hooks while the latter silently ignores them.</p>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="epbd_bert.dnabert2_epbd_crossattn.model.PoolingLayer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">epbd_bert.dnabert2_epbd_crossattn.model.</span></span><span class="sig-name descname"><span class="pre">PoolingLayer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">d_model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dropout</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.3</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/epbd_bert/dnabert2_epbd_crossattn/model.html#PoolingLayer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#epbd_bert.dnabert2_epbd_crossattn.model.PoolingLayer" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code></p>
+<p>Initializes internal Module state, shared by both nn.Module and ScriptModule.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="epbd_bert.dnabert2_epbd_crossattn.model.PoolingLayer.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/epbd_bert/dnabert2_epbd_crossattn/model.html#PoolingLayer.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#epbd_bert.dnabert2_epbd_crossattn.model.PoolingLayer.forward" title="Link to this definition">#</a></dt>
+<dd><p>Defines the computation performed at every call.</p>
+<p>Should be overridden by all subclasses.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Although the recipe for forward pass needs to be defined within
+this function, one should call the <code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code> instance afterwards
+instead of this since the former takes care of running the
+registered hooks while the latter silently ignores them.</p>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="epbd_bert.dnabert2_epbd_crossattn.model.PositionWiseFeedForward">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">epbd_bert.dnabert2_epbd_crossattn.model.</span></span><span class="sig-name descname"><span class="pre">PositionWiseFeedForward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">d_model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">d_ff</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/epbd_bert/dnabert2_epbd_crossattn/model.html#PositionWiseFeedForward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#epbd_bert.dnabert2_epbd_crossattn.model.PositionWiseFeedForward" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code></p>
+<p>Initializes internal Module state, shared by both nn.Module and ScriptModule.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="epbd_bert.dnabert2_epbd_crossattn.model.PositionWiseFeedForward.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/epbd_bert/dnabert2_epbd_crossattn/model.html#PositionWiseFeedForward.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#epbd_bert.dnabert2_epbd_crossattn.model.PositionWiseFeedForward.forward" title="Link to this definition">#</a></dt>
+<dd><p>Defines the computation performed at every call.</p>
+<p>Should be overridden by all subclasses.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Although the recipe for forward pass needs to be defined within
+this function, one should call the <code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code> instance afterwards
+instead of this since the former takes care of running the
+registered hooks while the latter silently ignores them.</p>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-epbd_bert.dnabert2_epbd_crossattn.test">
+<span id="epbd-bert-dnabert2-epbd-crossattn-test-module"></span><h2>epbd_bert.dnabert2_epbd_crossattn.test module<a class="headerlink" href="#module-epbd_bert.dnabert2_epbd_crossattn.test" title="Link to this heading">#</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="epbd_bert.dnabert2_epbd_crossattn.test.compute_predictions">
+<span class="sig-prename descclassname"><span class="pre">epbd_bert.dnabert2_epbd_crossattn.test.</span></span><span class="sig-name descname"><span class="pre">compute_predictions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dl</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataLoader</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_preds_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compute_again</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/epbd_bert/dnabert2_epbd_crossattn/test.html#compute_predictions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#epbd_bert.dnabert2_epbd_crossattn.test.compute_predictions" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-epbd_bert.dnabert2_epbd_crossattn.train_lightning">
+<span id="epbd-bert-dnabert2-epbd-crossattn-train-lightning-module"></span><h2>epbd_bert.dnabert2_epbd_crossattn.train_lightning module<a class="headerlink" href="#module-epbd_bert.dnabert2_epbd_crossattn.train_lightning" title="Link to this heading">#</a></h2>
+</section>
+<section id="module-epbd_bert.dnabert2_epbd_crossattn">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-epbd_bert.dnabert2_epbd_crossattn" title="Link to this heading">#</a></h2>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="epbd_bert.dnabert2_epbd.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">epbd_bert.dnabert2_epbd package</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="epbd_bert.utility.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">epbd_bert.utility package</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodules">Submodules</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-epbd_bert.dnabert2_epbd_crossattn.configs">epbd_bert.dnabert2_epbd_crossattn.configs module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#epbd_bert.dnabert2_epbd_crossattn.configs.EPBDConfigs"><code class="docutils literal notranslate"><span class="pre">EPBDConfigs</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#epbd_bert.dnabert2_epbd_crossattn.configs.EPBDConfigs.best_model_monitor"><code class="docutils literal notranslate"><span class="pre">EPBDConfigs.best_model_monitor</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#epbd_bert.dnabert2_epbd_crossattn.configs.EPBDConfigs.best_model_monitor_mode"><code class="docutils literal notranslate"><span class="pre">EPBDConfigs.best_model_monitor_mode</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#epbd_bert.dnabert2_epbd_crossattn.configs.EPBDConfigs.d_ff"><code class="docutils literal notranslate"><span class="pre">EPBDConfigs.d_ff</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#epbd_bert.dnabert2_epbd_crossattn.configs.EPBDConfigs.d_model"><code class="docutils literal notranslate"><span class="pre">EPBDConfigs.d_model</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#epbd_bert.dnabert2_epbd_crossattn.configs.EPBDConfigs.epbd_embedder_kernel_size"><code class="docutils literal notranslate"><span class="pre">EPBDConfigs.epbd_embedder_kernel_size</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#epbd_bert.dnabert2_epbd_crossattn.configs.EPBDConfigs.epbd_feature_channels"><code class="docutils literal notranslate"><span class="pre">EPBDConfigs.epbd_feature_channels</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#epbd_bert.dnabert2_epbd_crossattn.configs.EPBDConfigs.n_classes"><code class="docutils literal notranslate"><span class="pre">EPBDConfigs.n_classes</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#epbd_bert.dnabert2_epbd_crossattn.configs.EPBDConfigs.need_weights"><code class="docutils literal notranslate"><span class="pre">EPBDConfigs.need_weights</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#epbd_bert.dnabert2_epbd_crossattn.configs.EPBDConfigs.num_heads"><code class="docutils literal notranslate"><span class="pre">EPBDConfigs.num_heads</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#epbd_bert.dnabert2_epbd_crossattn.configs.EPBDConfigs.p_dropout"><code class="docutils literal notranslate"><span class="pre">EPBDConfigs.p_dropout</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#epbd_bert.dnabert2_epbd_crossattn.configs.TrainingConfigs"><code class="docutils literal notranslate"><span class="pre">TrainingConfigs</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#epbd_bert.dnabert2_epbd_crossattn.configs.TrainingConfigs.batch_size"><code class="docutils literal notranslate"><span class="pre">TrainingConfigs.batch_size</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#epbd_bert.dnabert2_epbd_crossattn.configs.TrainingConfigs.learning_rate"><code class="docutils literal notranslate"><span class="pre">TrainingConfigs.learning_rate</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#epbd_bert.dnabert2_epbd_crossattn.configs.TrainingConfigs.max_epochs"><code class="docutils literal notranslate"><span class="pre">TrainingConfigs.max_epochs</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#epbd_bert.dnabert2_epbd_crossattn.configs.TrainingConfigs.num_workers"><code class="docutils literal notranslate"><span class="pre">TrainingConfigs.num_workers</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#epbd_bert.dnabert2_epbd_crossattn.configs.TrainingConfigs.weight_decay"><code class="docutils literal notranslate"><span class="pre">TrainingConfigs.weight_decay</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-epbd_bert.dnabert2_epbd_crossattn.model">epbd_bert.dnabert2_epbd_crossattn.model module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#epbd_bert.dnabert2_epbd_crossattn.model.EPBDDnabert2Model"><code class="docutils literal notranslate"><span class="pre">EPBDDnabert2Model</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#epbd_bert.dnabert2_epbd_crossattn.model.EPBDDnabert2Model.calculate_loss"><code class="docutils literal notranslate"><span class="pre">EPBDDnabert2Model.calculate_loss()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#epbd_bert.dnabert2_epbd_crossattn.model.EPBDDnabert2Model.configure_optimizers"><code class="docutils literal notranslate"><span class="pre">EPBDDnabert2Model.configure_optimizers()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#epbd_bert.dnabert2_epbd_crossattn.model.EPBDDnabert2Model.forward"><code class="docutils literal notranslate"><span class="pre">EPBDDnabert2Model.forward()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#epbd_bert.dnabert2_epbd_crossattn.model.EPBDDnabert2Model.load_pretrained_model"><code class="docutils literal notranslate"><span class="pre">EPBDDnabert2Model.load_pretrained_model()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#epbd_bert.dnabert2_epbd_crossattn.model.EPBDDnabert2Model.on_validation_epoch_end"><code class="docutils literal notranslate"><span class="pre">EPBDDnabert2Model.on_validation_epoch_end()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#epbd_bert.dnabert2_epbd_crossattn.model.EPBDDnabert2Model.training_step"><code class="docutils literal notranslate"><span class="pre">EPBDDnabert2Model.training_step()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#epbd_bert.dnabert2_epbd_crossattn.model.EPBDDnabert2Model.validation_step"><code class="docutils literal notranslate"><span class="pre">EPBDDnabert2Model.validation_step()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#epbd_bert.dnabert2_epbd_crossattn.model.EPBDEmbedder"><code class="docutils literal notranslate"><span class="pre">EPBDEmbedder</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#epbd_bert.dnabert2_epbd_crossattn.model.EPBDEmbedder.forward"><code class="docutils literal notranslate"><span class="pre">EPBDEmbedder.forward()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#epbd_bert.dnabert2_epbd_crossattn.model.MultiModalLayer"><code class="docutils literal notranslate"><span class="pre">MultiModalLayer</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#epbd_bert.dnabert2_epbd_crossattn.model.MultiModalLayer.forward"><code class="docutils literal notranslate"><span class="pre">MultiModalLayer.forward()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#epbd_bert.dnabert2_epbd_crossattn.model.PoolingLayer"><code class="docutils literal notranslate"><span class="pre">PoolingLayer</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#epbd_bert.dnabert2_epbd_crossattn.model.PoolingLayer.forward"><code class="docutils literal notranslate"><span class="pre">PoolingLayer.forward()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#epbd_bert.dnabert2_epbd_crossattn.model.PositionWiseFeedForward"><code class="docutils literal notranslate"><span class="pre">PositionWiseFeedForward</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#epbd_bert.dnabert2_epbd_crossattn.model.PositionWiseFeedForward.forward"><code class="docutils literal notranslate"><span class="pre">PositionWiseFeedForward.forward()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-epbd_bert.dnabert2_epbd_crossattn.test">epbd_bert.dnabert2_epbd_crossattn.test module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#epbd_bert.dnabert2_epbd_crossattn.test.compute_predictions"><code class="docutils literal notranslate"><span class="pre">compute_predictions()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-epbd_bert.dnabert2_epbd_crossattn.train_lightning">epbd_bert.dnabert2_epbd_crossattn.train_lightning module</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-epbd_bert.dnabert2_epbd_crossattn">Module contents</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Anowarul Kabir, Manish Bhattarai, Kim Rasmussen, Amarda Shehu, Alan Bishop, Boian Alexandrov and Anny Usheva
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023, LANL.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=bd9e20870c6007c4c509"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=bd9e20870c6007c4c509"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

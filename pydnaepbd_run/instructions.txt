@@ -1,0 +1,12 @@
+
+# create pypy env and activate
+conda create -c conda-forge -p .venvs/pypy39_conda pypy python=3.9 -y # creating a conda venv with pypy and python 3.9 
+conda activate /usr/projects/pyDNA_EPBD/tf_dna_binding/.venvs/pypy39_conda
+
+# install pyDNA_EPBD 
+git clone https://github.com/lanl/pyDNA_EPBD.git
+cd pyDNA_EPBD
+python setup.py install
+
+# run pyDNA_EPBD
+python -m pydna_epbd.run --config_filepath data/pydnaepbd_things/configs.txt
