@@ -26,9 +26,9 @@ and the effectiveness of multi-modal deep learning models in gene regulation stu
 ## Resources
 
 - [Paper](https://www.biorxiv.org/content/10.1101/2024.01.16.575935v2.abstract)
-- [Code](https://github.com/ceodspspectrum/EPBD-BERT)
-- [Documentation](https://github.io/ceodspspectrum/EPBD-BERT)
-- [Analysis Notebooks](https://github.com/ceodspspectrum/EPBD-BERT/tree/main/analysis)
+- [Code](https://github.com/lanl/EPBD-BERT)
+- [Documentation](https://lanl.github.io/EPBD-BERT/)
+- [Analysis Notebooks](https://github.com/lanl/EPBD-BERT/tree/main/analysis)
 
 ## Installation
 
