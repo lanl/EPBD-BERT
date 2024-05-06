@@ -42,3 +42,5 @@ epbd_bert/dnabert2_epbd_crossattn/outputs
 analysis/data
 analysis_motif_discovery/data
 **/__pycache__/
+.eggs/*
+build/*

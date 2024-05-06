@@ -31,6 +31,34 @@ and the effectiveness of multi-modal deep learning models in gene regulation stu
 - [Analysis Notebooks](https://github.com/lanl/EPBD-BERT/tree/main/analysis)
 
 ## Installation
+```bash
+# Installation of virtural environment
+git clone https://github.com/lanl/EPBD-BERT.git
+cd EPBD-BERT
+conda create -c conda-forge -p .venvs/epbd_bert_condavenv_test1 python=3.11 -y
+conda activate .venvs/epbd_bert_condavenv_test1
+python setup.py install
+
+conda install -c conda-forge scikit-learn scipy -y
+
+# To deactivate and remove the venv
+conda deactivate
+conda remove --name epbd_bert_condavenv_test1 --all -y
+conda remove -p .venvs/epbd_bert_condavenv_test1 --all -y
+
+```
+<!--- 
+conda create -c conda-forge -p .venvs/epbd_bert_condavenv_test1 python=3.11 -y
+conda activate .venvs/epbd_bert_condavenv_test1
+
+or
+
+conda create -c conda-forge --name epbd_bert_condavenv_test1 python=3.11 -y
+conda activate epbd_bert_condavenv_test1
+
+# The other libraries to analyze the DNA breathing dynamics can be installed using the following command:
+conda install -c conda-forge scikit-learn scipy pandas matplotlib seaborn jupyterlab -y
+--->
 
 ### Bedtools Setup
 
