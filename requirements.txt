@@ -1,0 +1,12 @@
+argparse>=1.4.0
+numpy>=1.25.1
+joblib>=1.3.0
+torch
+ray
+tqdm
+transformers
+numpy
+scikit-learn
+pandas
+matplotlib
+seaborn
