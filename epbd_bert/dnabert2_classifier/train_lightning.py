@@ -16,11 +16,11 @@ if __name__ == "__main__":
     tokenizer = get_dnabert2_tokenizer(max_num_tokens=512)
     data_collator = SeqLabelDataCollator(pad_token_id=tokenizer.pad_token_id)
     train_dataset = SequenceDataset(
-        data_path="data/train_val_test/peaks_with_labels_train.tsv.gz",
+        data_path="resources/train_val_test/peaks_with_labels_train.tsv.gz",
         tokenizer=tokenizer,
     )
     val_dataset = SequenceDataset(
-        data_path="data/train_val_test/peaks_with_labels_val.tsv.gz",
+        data_path="resources/train_val_test/peaks_with_labels_val.tsv.gz",
         tokenizer=tokenizer,
     )
     print(train_dataset.__len__(), val_dataset.__len__())

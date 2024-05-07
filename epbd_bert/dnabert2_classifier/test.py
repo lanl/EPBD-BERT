@@ -16,11 +16,12 @@ if __name__ == "__main__":
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
     # ------- first 3 are necessary paths
-    model_ckpt_path = "dnabert2/backups/version_1/checkpoints/epoch=54-step=132385.ckpt"
-    saved_preds_path = "dnabert2/backups/pred_and_targets_dict_ontest_v1.pkl"
-    result_path = "dnabert2/backups/result_v1.tsv"
-    test_data_path = "data/train_val_test/peaks_with_labels_test.tsv.gz"
-    labels_dict_path = "data/processed/peakfilename_index_dict.pkl"
+    # model_ckpt_path = "dnabert2/backups/version_1/checkpoints/epoch=54-step=132385.ckpt"
+    model_ckpt_path = "resources/trained_weights/dnabert2_classifier.ckpt"
+    saved_preds_path = "outputs/dnabert2_pred_and_targets_dict_ontest.pkl"
+    result_path = "outputs/dnabert2_result.tsv"
+    test_data_path = "resources/train_val_test/peaks_with_labels_test.tsv.gz"
+    labels_dict_path = "resources/processed_data/peakfilename_index_dict.pkl"
 
     tokenizer = get_dnabert2_tokenizer(max_num_tokens=512)
     data_collator = SeqLabelDataCollator(pad_token_id=tokenizer.pad)
@@ -81,9 +82,7 @@ if __name__ == "__main__":
         pickle_utils.save_as_pickle(preds_and_targets_dict, saved_preds_path)
         return preds_and_targets_dict
 
-    preds_and_targets_dict = get_predictions(
-        test_dl, saved_preds_path, compute_again=False
-    )
+    preds_and_targets_dict = get_predictions(test_dl, saved_preds_path, compute_again=False)
 
     # overall auc-roc
     auc_roc = metrics.roc_auc_score(

@@ -1,7 +1,7 @@
 # data_home_dir = "epbd-bert/"  # "./"
-data_home_dir = "./"
+data_home_dir = ""
 dnabert2_pretrained_dirpath = data_home_dir + "resources/DNABERT-2-117M/"
-print(dnabert2_pretrained_dirpath)
+# print(dnabert2_pretrained_dirpath)
 
 # pydnaepbd_features_path = "data/pydnaepbd_things/coord_flips/id_seqs/"
 # pydnaepbd_features_path = "gen-epbd/cond_epbd/coord_flips/"

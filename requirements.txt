@@ -6,3 +6,4 @@ matplotlib
 seaborn
 lightning
 transformers
+einops

@@ -1,5 +1,6 @@
 import torch
 import pandas as pd
+import numpy as np
 from sklearn.utils.class_weight import compute_class_weight
 import epbd_bert.utility.pickle_utils as pickle_utils
 
@@ -53,12 +54,10 @@ def get_uniform_peaks_metadata(home_dir="/usr/projects/pyDNA_EPBD/tf_dna_binding
     return peaks_metadata_df
 
 
-def compute_multi_class_weights(home_dir="/usr/projects/pyDNA_EPBD/tf_dna_binding/"):
-    data_path = home_dir + "data/train_val_test/peaks_with_labels_train.tsv.gz"
+def compute_multi_class_weights(home_dir=""):
+    data_path = home_dir + "resources/train_val_test/peaks_with_labels_train.tsv.gz"
     data_df = pd.read_csv(data_path, compression="gzip", sep="\t")
-    labels_dict = pickle_utils.load(
-        home_dir + "data/processed/peakfilename_index_dict.pkl"
-    )
+    labels_dict = pickle_utils.load(home_dir + "resources/processed_data/peakfilename_index_dict.pkl")
 
     all_labels = []
 
@@ -68,9 +67,7 @@ def compute_multi_class_weights(home_dir="/usr/projects/pyDNA_EPBD/tf_dna_bindin
             all_labels.append(labels_dict[l])
 
     data_df["labels"].apply(get_all_labels)
-    class_weights = compute_class_weight(
-        "balanced", classes=list(range(len(labels_dict))), y=all_labels
-    )
+    class_weights = compute_class_weight("balanced", classes=np.array(list(range(len(labels_dict)))), y=all_labels)
     class_weights = torch.tensor(class_weights, dtype=torch.float)
 
     # print(class_weights)

@@ -93,6 +93,20 @@ jupyter notebook data_preprocessing/8_create_labels_dict.ipynb
 
 Note: There are some other dataset modules. Each module provides example running instructions at the bottom.
 
+## Training and testing the developed models
+| Model Module | Usage |
+| :--- | :--- |
+| DNABERT2-finetuned | |
+| ```epbd_bert.dnabert2_classifier.train_lightning``` | Train DNABERT2 using train/validation split |
+| ```epbd_bert.dnabert2_classifier.test``` | Test finetuned DNABERT2 on test split |
+| VanillaEPBD-DNABERT2-coordflip | |
+| ```epbd_bert.dnabert2_epbd.train_lightning``` | Train VanillaEPBD-DNABERT2 using train/validation split |
+| ```epbd_bert.dnabert2_epbd.test``` | Test VanillaEPBD-DNABERT2 on test split |
+| EPBDxDNABERT-2 | |
+| ```epbd_bert.dnabert2_epbd_crossattn.train_lightning``` | Train EPBDxDNABERT-2 using train/validation split |
+| ```epbd_bert.dnabert2_epbd_crossattn.test``` | Test EPBDxDNABERT-2 on test split  |
+
+Note: Details of each model with other ablation study can be found in the [Paper](https://www.biorxiv.org/content/10.1101/2024.01.16.575935v2.abstract). To run train/test: ```python -m epbd_bert.dnabert2_classifier.test```.
 
 ## Authors
 
