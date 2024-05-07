@@ -12,14 +12,12 @@ import epbd_bert.utility.pickle_utils as pickle_utils
 class SequenceDataset(Dataset):
     """Dataset for supervised fine-tuning."""
 
-    def __init__(
-        self, data_path: str, tokenizer: transformers.PreTrainedTokenizer, home_dir=""
-    ):
+    def __init__(self, data_path: str, tokenizer: transformers.PreTrainedTokenizer, home_dir=""):
         super().__init__()
         data_path = home_dir + data_path
         # "data/train_val_test/peaks_with_labels_val.tsv.gz"
-        labels_dict_path = home_dir + "data/processed/peakfilename_index_dict.pkl"
-        seqs_dict_path = home_dir + "data/processed/seq_with_flanks_dict.pkl"
+        labels_dict_path = home_dir + "resources/processed_data/peakfilename_index_dict.pkl"
+        seqs_dict_path = home_dir + "resources/processed_data/seq_with_flanks_dict.pkl"
         # this may contain "N"s since the flanks are not cleaned but 200seq are cleaned
         self.tokenizer = tokenizer
 
@@ -91,12 +89,15 @@ class SequenceDataset(Dataset):
         return dict(input_ids=input_ids, labels=labels)
 
 
-# data_path = "data/train_val_test/peaks_with_labels_val.tsv.gz"
+# data_path = "resources/train_val_test/peaks_with_labels_val.tsv.gz"
 # tokenizer = transformers.AutoTokenizer.from_pretrained(
-#     "data/dnabert2_pretrained/DNABERT-2-117M/",
+#     "resources/DNABERT-2-117M/",
 #     trust_remote_code=True,
-#     cache_dir="data/dnabert2_pretrained/cache/",
+#     cache_dir="resources/cache/",
 # )
-# d = SequenceDataset(data_path, tokenizer)
-# print(d.__len__())
-# print(d.__getitem__(100))
+# ds = SequenceDataset(data_path, tokenizer)
+# print(ds.__len__())
+# print(ds.__getitem__(100))
+
+# to run
+# python -m epbd_bert.datasets.sequence_dataset

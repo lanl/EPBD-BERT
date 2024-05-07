@@ -26,8 +26,18 @@ class SequenceEPBDMultiModalDataset(SequenceEPBDDataset):
         return epbd_features
 
 
-# data_path = "data/train_val_test/peaks_with_labels_val.tsv.gz"
-# tokenizer = transformers.AutoTokenizer.from_pretrained("data/dnabert2_pretrained/DNABERT-2-117M/")
-# d = SequenceEPBDMultiModalDataset(data_path, tokenizer)
-# print(d.__len__())
-# print(d.__getitem__(100))
+# tokenizer = transformers.AutoTokenizer.from_pretrained(
+#     "resources/DNABERT-2-117M/",
+#     trust_remote_code=True,
+#     cache_dir="resources/cache/",
+# )
+# ds = SequenceEPBDMultiModalDataset(
+#     data_path="resources/train_val_test/peaks_with_labels_test.tsv.gz",
+#     pydnaepbd_features_path="resources/pydnaepbd_things/coord_flips/id_seqs/",  # ../data, resources
+#     tokenizer=tokenizer,
+# )
+# print(ds.__len__())
+# print(ds.__getitem__(100))
+
+# to run
+# python -m epbd_bert.datasets.sequence_epbd_multimodal_dataset

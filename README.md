@@ -85,6 +85,14 @@ jupyter notebook data_preprocessing/7_create_train_val_test_set.ipynb
 jupyter notebook data_preprocessing/8_create_labels_dict.ipynb
 ```
 
+| Dataset Module  | Usage |
+| :--- | :--- |
+| ```epbd_bert.datasets.sequence_dataset```  | Loads sequence only dataset  |
+| ```epbd_bert.datasets.sequence_epbd_dataset``` | Loads sequence and EPBD (flat) features |
+| ```epbd_bert.datasets.sequence_epbd_multimodal_dataset``` | Loads sequence and EPBD (matrix) features |
+
+Note: There are some other dataset modules. Each module provides example running instructions at the bottom.
+
 
 ## Authors
 

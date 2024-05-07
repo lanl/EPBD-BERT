@@ -20,14 +20,19 @@ class SequenceEPBDMultiModalLabelSpecificDataset(SequenceEPBDMultiModalDataset):
         self.data_df.reset_index(drop=True, inplace=True)
 
 
-# data_path = "data/train_val_test/peaks_with_labels_test.tsv.gz"
 # tokenizer = transformers.AutoTokenizer.from_pretrained(
-#     "data/dnabert2_pretrained/DNABERT-2-117M/",
+#     "resources/DNABERT-2-117M/",
 #     trust_remote_code=True,
-#     cache_dir="data/dnabert2_pretrained/cache/",
+#     cache_dir="resources/cache/",
 # )
-# d = SequenceEPBDMultiModalLabelSpecificDataset(
-#     data_path, tokenizer, label="wgEncodeAwgTfbsBroadDnd41CtcfUniPk"
+# ds = SequenceEPBDMultiModalLabelSpecificDataset(
+#     data_path="resources/train_val_test/peaks_with_labels_test.tsv.gz",
+#     pydnaepbd_features_path="resources/pydnaepbd_things/coord_flips/id_seqs/",  # ../data, resources
+#     tokenizer=tokenizer,
+#     label="wgEncodeAwgTfbsBroadDnd41CtcfUniPk",
 # )
-# print(d.__len__())
-# print(d.__getitem__(100))
+# print(ds.__len__())
+# print(ds.__getitem__(100))
+
+# to run
+# python -m epbd_bert.datasets.sequence_epbd_multimodal_labelspecific_dataset
