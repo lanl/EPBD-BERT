@@ -1,4 +1,4 @@
-# Welcome to EPBDxBERT's Documentation!
+# Welcome to EPBD-BERT's Documentation!
 
 This repository corresponds to the article titled **"Advancing Transcription Factor Binding Site Prediction Using DNA Breathing Dynamics and Sequence Transformers via Cross Attention"**.
 
