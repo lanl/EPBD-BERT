@@ -2,7 +2,7 @@
 
 This repository corresponds to the article titled **"Advancing Transcription Factor Binding Site Prediction Using DNA Breathing Dynamics and Sequence Transformers via Cross Attention"**.
 
-![DOI badge](https://zenodo.org/badge/DOI/10.5281/zenodo.8222805.svg)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.11130474.svg)](https://doi.org/10.5281/zenodo.11130474)
 (https://www.biorxiv.org/content/10.1101/2024.01.16.575935v2)
 
 ![EPBDxBERT Framework](plots/EPBD_Arch.jpg)
