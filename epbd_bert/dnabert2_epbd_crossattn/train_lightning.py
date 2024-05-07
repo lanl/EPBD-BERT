@@ -36,11 +36,13 @@ if __name__ == "__main__":
     tokenizer = get_dnabert2_tokenizer(max_num_tokens=512)
     data_collator = SeqLabelEPBDDataCollator(tokenizer.pad_token_id)
     train_dataset = SequenceRandEPBDMultiModalDataset(
-        data_path="data/train_val_test/peaks_with_labels_train.tsv.gz",
+        data_path="resources/train_val_test/peaks_with_labels_train.tsv.gz",
+        pydnaepbd_features_path="resources/pydnaepbd_things/coord_flips/id_seqs/",  # ../data, resources
         tokenizer=tokenizer,
     )
     val_dataset = SequenceRandEPBDMultiModalDataset(
-        data_path="data/train_val_test/peaks_with_labels_val.tsv.gz",
+        data_path="resources/train_val_test/peaks_with_labels_val.tsv.gz",
+        pydnaepbd_features_path="resources/pydnaepbd_things/coord_flips/id_seqs/",  # ../data, resources
         tokenizer=tokenizer,
     )
     print(train_dataset.__len__(), val_dataset.__len__())

@@ -40,6 +40,7 @@ conda activate .venvs/epbd_bert_condavenv_test1
 python setup.py install
 
 conda install -c conda-forge scikit-learn scipy -y
+pip uninstall triton # We did not utilize triton for underlying hardware dependency
 
 # To deactivate and remove the venv
 conda deactivate
