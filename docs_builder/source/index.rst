@@ -7,11 +7,12 @@ Welcome to EPBD-BERT's documentation!
 =====================================
 This repository corresponds to the article titled **"Advancing Transcription Factor Binding Site Prediction Using DNA Breathing Dynamics and Sequence Transformers via Cross Attention"**.
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.11130474.svg)](https://doi.org/10.5281/zenodo.11130474)
-(https://www.biorxiv.org/content/10.1101/2024.01.16.575935v2)
 
-![EPBDxBERT Framework](plots/EPBD_Arch.jpg)
-*Figure 1: Overview of the proposed EPBDxBERT framework*
+.. figure:: ../../plots/EPBD_Arch.jpg
+    :width: 50%
+    :align: center
+    
+    Figure 1: Overview of the proposed EPBDxBERT framework.
 
 Understanding the impact of genomic variants on transcription factor binding and gene regulation remains a key area of
 research, with implications for unraveling the complex mechanisms underlying various functional effects. This software
@@ -28,6 +29,43 @@ provided greater predictive capabilities and insights into the mechanisms of dis
 genome-wide association studies. This work highlights the importance of DNA biophysical characteristics in TF binding
 and the effectiveness of multi-modal deep learning models in gene regulation studies
 
+
+Resources
+========================================
+* `Paper <https://www.biorxiv.org/content/10.1101/2024.01.16.575935v2.abstract>`_
+* `Code <https://github.com/lanl/EPBD-BERT>`_ 
+* `Documentation <https://lanl.github.io/EPBD-BERT/>`_
+* `Analysis Notebooks <https://github.com/lanl/EPBD-BERT/tree/main/analysis>`_
+
+
+Acknowledgements
+========================================
+Los Alamos National Lab (LANL), T-1
+
+Copyright notice
+========================================
+© 2024. Triad National Security, LLC. All rights reserved.
+This program was produced under U.S. Government contract 89233218CNA000001 for Los Alamos National Laboratory (LANL), which is operated by Triad National Security, LLC for the U.S. Department of Energy/National Nuclear Security Administration. All rights in the program are reserved by Triad National Security, LLC, and the U.S. Department of Energy/National Nuclear Security Administration. The Government is granted for itself and others acting on its behalf a nonexclusive, paid-up, irrevocable worldwide license in this material to reproduce, prepare. derivative works, distribute copies to the public, perform publicly and display publicly, and to permit others to do so.
+LANL O#4717
+
+License
+========================================
+This program is Open-Source under the BSD-3 License.
+ 
+1. Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+ 
+2. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+ 
+3. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+ 
+Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+
+
+Documentation
+==================
 .. toctree::
    :maxdepth: 4
 
@@ -40,3 +78,30 @@ Indices and tables
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
+
+Authors
+==================
+- `Anowarul Kabir <mailto:akabir4@gmu.edu>`_: Computer Sciece, George Mason University
+- `Manish Bhattarai <mailto:ceodspspectrum@lanl.gov>`_: Theoretical Division, Los Alamos National Laboratory
+- `Kim Rasmussen <mailto:kor@lanl.gov>`_: Theoretical Division, Los Alamos National Laboratory
+- `Amarda Shehu <mailto:ashehu@gmu.edu>`_: Computer Sciece, George Mason University
+- `Alan Bishop <mailto:arb@lanl.gov>`_: Theoretical Division, Los Alamos National Laboratory
+- `Boian S. Alexandrov <mailto:boian@lanl.gov>`_: Theoretical Division, Los Alamos National Laboratory
+- `Anny Usheva <mailto:Anny\_Usheva@brown.edu>`_: Surgery, Rhode Island Hospital and Brown University
+
+How to cite EPBD-BERT?
+==================
+
+.. code-block:: console
+   
+   @article{kabir2024advancing,
+      title = {Advancing Transcription Factor Binding Site Prediction Using DNA Breathing Dynamics and Sequence Transformers via Cross Attention},
+      author = {Kabir, Anowarul and Bhattarai, Manish and Rasmussen, Kim {\O} and Shehu, Amarda and Bishop, Alan R and Alexandrov, Boian and Usheva, Anny},
+      journal = {bioRxiv},
+      pages = {2024--01},
+      year = {2024},
+      publisher = {Cold Spring Harbor Laboratory}
+      doi      = {10.5281/zenodo.11130474},
+      url      = {https://www.biorxiv.org/content/10.1101/2024.01.16.575935v2}
+      }
+
