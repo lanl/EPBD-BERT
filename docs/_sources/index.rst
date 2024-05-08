@@ -9,7 +9,7 @@ This repository corresponds to the article titled **"Advancing Transcription Fac
 
 
 .. figure:: ../../plots/EPBD_Arch.jpg
-    :width: 50%
+    :width: 70%
     :align: center
     
     Figure 1: Overview of the proposed EPBDxBERT framework.
@@ -36,6 +36,26 @@ Resources
 * `Code <https://github.com/lanl/EPBD-BERT>`_ 
 * `Documentation <https://lanl.github.io/EPBD-BERT/>`_
 * `Analysis Notebooks <https://github.com/lanl/EPBD-BERT/tree/main/analysis>`_
+
+
+Installation
+========================================
+.. code-block:: shell
+
+      # Installation of virtural environment
+      git clone https://github.com/lanl/EPBD-BERT.git
+      cd EPBD-BERT
+      conda create -c conda-forge -p .venvs/epbd_bert_condavenv_test1 python=3.11 -y
+      conda activate .venvs/epbd_bert_condavenv_test1
+      python setup.py install
+
+      conda install -c conda-forge scikit-learn scipy -y
+      pip uninstall triton # We did not utilize triton for underlying hardware dependency
+
+      # To deactivate and remove the venv
+      conda deactivate
+      conda remove --name epbd_bert_condavenv_test1 --all -y
+      conda remove -p .venvs/epbd_bert_condavenv_test1 --all -y
 
 
 Acknowledgements
@@ -90,17 +110,23 @@ Authors
 - `Anny Usheva <mailto:Anny\_Usheva@brown.edu>`_: Surgery, Rhode Island Hospital and Brown University
 
 How to cite EPBD-BERT?
-==================
+========================================
 
 .. code-block:: console
    
    @article{kabir2024advancing,
-      title = {Advancing Transcription Factor Binding Site Prediction Using DNA Breathing Dynamics and Sequence Transformers via Cross Attention},
-      author = {Kabir, Anowarul and Bhattarai, Manish and Rasmussen, Kim {\O} and Shehu, Amarda and Bishop, Alan R and Alexandrov, Boian and Usheva, Anny},
-      journal = {bioRxiv},
-      pages = {2024--01},
-      year = {2024},
-      publisher = {Cold Spring Harbor Laboratory}
+      title    = {Advancing Transcription Factor Binding Site Prediction Using DNA Breathing Dynamics and Sequence Transformers via Cross Attention},
+      author   = {Kabir, Anowarul and 
+                  Bhattarai, Manish and
+                  Rasmussen, Kim {\O} and 
+                  Shehu, Amarda and  
+                  Bishop, Alan R and 
+                  Alexandrov, Boian and
+                  Usheva, Anny},
+      journal  = {bioRxiv},
+      pages    = {2024--01},
+      year     = {2024},
+      publisher= {Cold Spring Harbor Laboratory}
       doi      = {10.5281/zenodo.11130474},
       url      = {https://www.biorxiv.org/content/10.1101/2024.01.16.575935v2}
       }

@@ -313,6 +313,7 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Welcome to EPBD-BERT’s documentation!</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#resources">Resources</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">Installation</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgements">Acknowledgements</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#copyright-notice">Copyright notice</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#license">License</a></li>
@@ -336,7 +337,7 @@ document.write(`
 <h1>Welcome to EPBD-BERT’s documentation!<a class="headerlink" href="#welcome-to-epbd-bert-s-documentation" title="Link to this heading">#</a></h1>
 <p>This repository corresponds to the article titled <strong>“Advancing Transcription Factor Binding Site Prediction Using DNA Breathing Dynamics and Sequence Transformers via Cross Attention”</strong>.</p>
 <figure class="align-center" id="id2">
-<a class="reference internal image-reference" href="_images/EPBD_Arch.jpg"><img alt="_images/EPBD_Arch.jpg" src="_images/EPBD_Arch.jpg" style="width: 50%;" /></a>
+<a class="reference internal image-reference" href="_images/EPBD_Arch.jpg"><img alt="_images/EPBD_Arch.jpg" src="_images/EPBD_Arch.jpg" style="width: 70%;" /></a>
 <figcaption>
 <p><span class="caption-text">Figure 1: Overview of the proposed EPBDxBERT framework.</span><a class="headerlink" href="#id2" title="Link to this image">#</a></p>
 </figcaption>
@@ -364,6 +365,25 @@ and the effectiveness of multi-modal deep learning models in gene regulation stu
 <li><p><a class="reference external" href="https://lanl.github.io/EPBD-BERT/">Documentation</a></p></li>
 <li><p><a class="reference external" href="https://github.com/lanl/EPBD-BERT/tree/main/analysis">Analysis Notebooks</a></p></li>
 </ul>
+</section>
+<section id="installation">
+<h1>Installation<a class="headerlink" href="#installation" title="Link to this heading">#</a></h1>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># Installation of virtural environment</span>
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/lanl/EPBD-BERT.git
+<span class="nb">cd</span><span class="w"> </span>EPBD-BERT
+conda<span class="w"> </span>create<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>-p<span class="w"> </span>.venvs/epbd_bert_condavenv_test1<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.11<span class="w"> </span>-y
+conda<span class="w"> </span>activate<span class="w"> </span>.venvs/epbd_bert_condavenv_test1
+python<span class="w"> </span>setup.py<span class="w"> </span>install
+
+conda<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>scikit-learn<span class="w"> </span>scipy<span class="w"> </span>-y
+pip<span class="w"> </span>uninstall<span class="w"> </span>triton<span class="w"> </span><span class="c1"># We did not utilize triton for underlying hardware dependency</span>
+
+<span class="c1"># To deactivate and remove the venv</span>
+conda<span class="w"> </span>deactivate
+conda<span class="w"> </span>remove<span class="w"> </span>--name<span class="w"> </span>epbd_bert_condavenv_test1<span class="w"> </span>--all<span class="w"> </span>-y
+conda<span class="w"> </span>remove<span class="w"> </span>-p<span class="w"> </span>.venvs/epbd_bert_condavenv_test1<span class="w"> </span>--all<span class="w"> </span>-y
+</pre></div>
+</div>
 </section>
 <section id="acknowledgements">
 <h1>Acknowledgements<a class="headerlink" href="#acknowledgements" title="Link to this heading">#</a></h1>
@@ -438,12 +458,18 @@ LANL O#4717</p>
 <section id="how-to-cite-epbd-bert">
 <h1>How to cite EPBD-BERT?<a class="headerlink" href="#how-to-cite-epbd-bert" title="Link to this heading">#</a></h1>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">@article{kabir2024advancing,</span>
-<span class="go">   title = {Advancing Transcription Factor Binding Site Prediction Using DNA Breathing Dynamics and Sequence Transformers via Cross Attention},</span>
-<span class="go">   author = {Kabir, Anowarul and Bhattarai, Manish and Rasmussen, Kim {\O} and Shehu, Amarda and Bishop, Alan R and Alexandrov, Boian and Usheva, Anny},</span>
-<span class="go">   journal = {bioRxiv},</span>
-<span class="go">   pages = {2024--01},</span>
-<span class="go">   year = {2024},</span>
-<span class="go">   publisher = {Cold Spring Harbor Laboratory}</span>
+<span class="go">   title    = {Advancing Transcription Factor Binding Site Prediction Using DNA Breathing Dynamics and Sequence Transformers via Cross Attention},</span>
+<span class="go">   author   = {Kabir, Anowarul and</span>
+<span class="go">               Bhattarai, Manish and</span>
+<span class="go">               Rasmussen, Kim {\O} and</span>
+<span class="go">               Shehu, Amarda and</span>
+<span class="go">               Bishop, Alan R and</span>
+<span class="go">               Alexandrov, Boian and</span>
+<span class="go">               Usheva, Anny},</span>
+<span class="go">   journal  = {bioRxiv},</span>
+<span class="go">   pages    = {2024--01},</span>
+<span class="go">   year     = {2024},</span>
+<span class="go">   publisher= {Cold Spring Harbor Laboratory}</span>
 <span class="go">   doi      = {10.5281/zenodo.11130474},</span>
 <span class="go">   url      = {https://www.biorxiv.org/content/10.1101/2024.01.16.575935v2}</span>
 <span class="go">   }</span>
@@ -489,6 +515,7 @@ LANL O#4717</p>
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Welcome to EPBD-BERT’s documentation!</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#resources">Resources</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">Installation</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgements">Acknowledgements</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#copyright-notice">Copyright notice</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#license">License</a></li>
