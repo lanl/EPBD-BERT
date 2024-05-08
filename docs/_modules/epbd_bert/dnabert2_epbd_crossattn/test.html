@@ -282,15 +282,10 @@ document.write(`
 
 <div class="viewcode-block" id="compute_predictions">
 <a class="viewcode-back" href="../../../modules/epbd_bert.dnabert2_epbd_crossattn.html#epbd_bert.dnabert2_epbd_crossattn.test.compute_predictions">[docs]</a>
-<span class="k">def</span> <span class="nf">compute_predictions</span><span class="p">(</span>
-    <span class="n">model</span><span class="p">,</span> <span class="n">dl</span><span class="p">:</span> <span class="n">DataLoader</span><span class="p">,</span> <span class="n">output_preds_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">compute_again</span><span class="o">=</span><span class="kc">False</span>
-<span class="p">):</span>
+<span class="k">def</span> <span class="nf">compute_predictions</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">dl</span><span class="p">:</span> <span class="n">DataLoader</span><span class="p">,</span> <span class="n">output_preds_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">compute_again</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">output_preds_path</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">compute_again</span><span class="p">:</span>
-        <span class="n">preds_and_targets_dict</span> <span class="o">=</span> <span class="n">pickle_utils</span><span class="o">.</span><span class="n">load_pickle</span><span class="p">(</span><span class="n">output_preds_path</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span>
-            <span class="n">preds_and_targets_dict</span><span class="p">[</span><span class="s2">&quot;preds&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span>
-            <span class="n">preds_and_targets_dict</span><span class="p">[</span><span class="s2">&quot;targets&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span>
-        <span class="p">)</span>
+        <span class="n">preds_and_targets_dict</span> <span class="o">=</span> <span class="n">pickle_utils</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">output_preds_path</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">preds_and_targets_dict</span><span class="p">[</span><span class="s2">&quot;preds&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">preds_and_targets_dict</span><span class="p">[</span><span class="s2">&quot;targets&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">preds_and_targets_dict</span>
 
     <span class="n">all_preds</span><span class="p">,</span> <span class="n">all_targets</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
@@ -313,11 +308,8 @@ document.write(`
     <span class="c1"># accumulating all predictions and target vectors</span>
     <span class="n">all_preds</span><span class="p">,</span> <span class="n">all_targets</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">(</span><span class="n">all_preds</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">(</span><span class="n">all_targets</span><span class="p">)</span>
     <span class="n">preds_and_targets_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;preds&quot;</span><span class="p">:</span> <span class="n">all_preds</span><span class="p">,</span> <span class="s2">&quot;targets&quot;</span><span class="p">:</span> <span class="n">all_targets</span><span class="p">}</span>
-    <span class="nb">print</span><span class="p">(</span>
-        <span class="n">preds_and_targets_dict</span><span class="p">[</span><span class="s2">&quot;preds&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span>
-        <span class="n">preds_and_targets_dict</span><span class="p">[</span><span class="s2">&quot;targets&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span>
-    <span class="p">)</span>
-    <span class="n">pickle_utils</span><span class="o">.</span><span class="n">save_as_pickle</span><span class="p">(</span><span class="n">preds_and_targets_dict</span><span class="p">,</span> <span class="n">output_preds_path</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">preds_and_targets_dict</span><span class="p">[</span><span class="s2">&quot;preds&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">preds_and_targets_dict</span><span class="p">[</span><span class="s2">&quot;targets&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+    <span class="n">pickle_utils</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">preds_and_targets_dict</span><span class="p">,</span> <span class="n">output_preds_path</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">preds_and_targets_dict</span></div>
 
 
@@ -326,38 +318,27 @@ document.write(`
     <span class="n">tokenizer</span> <span class="o">=</span> <span class="n">get_dnabert2_tokenizer</span><span class="p">(</span><span class="n">max_num_tokens</span><span class="o">=</span><span class="mi">512</span><span class="p">)</span>
     <span class="n">data_collator</span> <span class="o">=</span> <span class="n">SeqLabelEPBDDataCollator</span><span class="p">(</span><span class="n">tokenizer</span><span class="o">.</span><span class="n">pad_token_id</span><span class="p">)</span>
     <span class="n">test_dataset</span> <span class="o">=</span> <span class="n">SequenceEPBDMultiModalDataset</span><span class="p">(</span>
-        <span class="s2">&quot;data/train_val_test/peaks_with_labels_test.tsv.gz&quot;</span><span class="p">,</span> <span class="n">tokenizer</span><span class="o">=</span><span class="n">tokenizer</span>
+        <span class="s2">&quot;data/train_val_test/peaks_with_labels_test.tsv.gz&quot;</span><span class="p">,</span>
+        <span class="n">pydnaepbd_features_path</span><span class="o">=</span><span class="s2">&quot;data/pydnaepbd_things/coord_flips/id_seqs/&quot;</span><span class="p">,</span>
+        <span class="n">tokenizer</span><span class="o">=</span><span class="n">tokenizer</span><span class="p">,</span>
     <span class="p">)</span>
-    <span class="n">test_dl</span> <span class="o">=</span> <span class="n">DataLoader</span><span class="p">(</span>
-        <span class="n">test_dataset</span><span class="p">,</span>
-        <span class="n">collate_fn</span><span class="o">=</span><span class="n">data_collator</span><span class="p">,</span>
-        <span class="n">shuffle</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-        <span class="n">pin_memory</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-        <span class="n">batch_size</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span>
-        <span class="n">num_workers</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
-    <span class="p">)</span>
+    <span class="n">test_dl</span> <span class="o">=</span> <span class="n">DataLoader</span><span class="p">(</span><span class="n">test_dataset</span><span class="p">,</span> <span class="n">collate_fn</span><span class="o">=</span><span class="n">data_collator</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">pin_memory</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span> <span class="n">num_workers</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">test_dataset</span><span class="o">.</span><span class="fm">__len__</span><span class="p">(),</span> <span class="nb">len</span><span class="p">(</span><span class="n">test_dl</span><span class="p">))</span>
 
-    <span class="n">version</span> <span class="o">=</span> <span class="s2">&quot;v1&quot;</span>  <span class="c1"># v0, v1</span>
-    <span class="n">checkpoint_path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;dnabert2_epbd_crossattn/backups/</span><span class="si">{</span><span class="n">version</span><span class="si">}</span><span class="s2">/checkpoints/epoch=12-step=125151.ckpt&quot;</span>  <span class="c1"># epoch=29-step=72210-val_loss=0.058-val_auc_roc=0.939.ckpt&quot;</span>
+    <span class="c1"># version = &quot;v1&quot;  # v0, v1</span>
+    <span class="c1"># checkpoint_path = f&quot;dnabert2_epbd_crossattn/backups/{version}/checkpoints/epoch=12-step=125151.ckpt&quot;  # epoch=29-step=72210-val_loss=0.058-val_auc_roc=0.939.ckpt&quot;</span>
+    <span class="n">checkpoint_path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;epbd-bert/resources/trained_weights/epbd_dnabert2_crossattn_best.ckpt&quot;</span>
     <span class="n">model</span> <span class="o">=</span> <span class="n">EPBDDnabert2Model</span><span class="o">.</span><span class="n">load_pretrained_model</span><span class="p">(</span><span class="n">checkpoint_path</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;eval&quot;</span><span class="p">)</span>
     <span class="n">device</span> <span class="o">=</span> <span class="s2">&quot;cuda&quot;</span> <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span> <span class="k">else</span> <span class="s2">&quot;cpu&quot;</span>
     <span class="n">preds_and_targets_dict</span> <span class="o">=</span> <span class="n">compute_predictions</span><span class="p">(</span>
-        <span class="n">model</span><span class="p">,</span>
-        <span class="n">test_dl</span><span class="p">,</span>
-        <span class="n">output_preds_path</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;dnabert2_epbd_crossattn/backups/</span><span class="si">{</span><span class="n">version</span><span class="si">}</span><span class="s2">/pred_and_targets_dict_ontest.pkl&quot;</span><span class="p">,</span>
-        <span class="n">compute_again</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">model</span><span class="p">,</span> <span class="n">test_dl</span><span class="p">,</span> <span class="n">output_preds_path</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;epbd-bert/epbd_bert/dnabert2_epbd_crossattn/outputs/pred_and_targets_dict_ontest.pkl&quot;</span><span class="p">,</span> <span class="n">compute_again</span><span class="o">=</span><span class="kc">False</span>
     <span class="p">)</span>
 
     <span class="c1"># overall auc-roc</span>
-    <span class="n">auc_roc</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">roc_auc_score</span><span class="p">(</span>
-        <span class="n">preds_and_targets_dict</span><span class="p">[</span><span class="s2">&quot;targets&quot;</span><span class="p">],</span>
-        <span class="n">preds_and_targets_dict</span><span class="p">[</span><span class="s2">&quot;preds&quot;</span><span class="p">],</span>
-        <span class="n">average</span><span class="o">=</span><span class="s2">&quot;micro&quot;</span><span class="p">,</span>
-    <span class="p">)</span>
+    <span class="n">auc_roc</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">roc_auc_score</span><span class="p">(</span><span class="n">preds_and_targets_dict</span><span class="p">[</span><span class="s2">&quot;targets&quot;</span><span class="p">],</span> <span class="n">preds_and_targets_dict</span><span class="p">[</span><span class="s2">&quot;preds&quot;</span><span class="p">],</span> <span class="n">average</span><span class="o">=</span><span class="s2">&quot;micro&quot;</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;overall auc-roc: &quot;</span><span class="p">,</span> <span class="n">auc_roc</span><span class="p">)</span>
 
-    <span class="c1"># these codes are taken from tbinet</span>
+    <span class="c1"># performance metrics computation</span>
     <span class="k">def</span> <span class="nf">get_auroc</span><span class="p">(</span><span class="n">preds</span><span class="p">,</span> <span class="n">obs</span><span class="p">):</span>
         <span class="n">fpr</span><span class="p">,</span> <span class="n">tpr</span><span class="p">,</span> <span class="n">thresholds</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">roc_curve</span><span class="p">(</span><span class="n">obs</span><span class="p">,</span> <span class="n">preds</span><span class="p">,</span> <span class="n">drop_intermediate</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
         <span class="n">auroc</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">auc</span><span class="p">(</span><span class="n">fpr</span><span class="p">,</span> <span class="n">tpr</span><span class="p">)</span>
@@ -384,11 +365,8 @@ document.write(`
             <span class="nb">print</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">auroc_list</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
             <span class="nb">print</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">aupr_list</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
 
-    <span class="n">get_aurocs_and_auprs</span><span class="p">(</span>
-        <span class="n">preds_and_targets_dict</span><span class="p">[</span><span class="s2">&quot;preds&quot;</span><span class="p">],</span>
-        <span class="n">preds_and_targets_dict</span><span class="p">[</span><span class="s2">&quot;targets&quot;</span><span class="p">],</span>
-        <span class="kc">True</span><span class="p">,</span>
-    <span class="p">)</span>
+    <span class="c1"># computing and printing performance metrics</span>
+    <span class="n">get_aurocs_and_auprs</span><span class="p">(</span><span class="n">preds_and_targets_dict</span><span class="p">[</span><span class="s2">&quot;preds&quot;</span><span class="p">],</span> <span class="n">preds_and_targets_dict</span><span class="p">[</span><span class="s2">&quot;targets&quot;</span><span class="p">],</span> <span class="kc">True</span><span class="p">)</span>
 </pre></div>
 
                 </article>

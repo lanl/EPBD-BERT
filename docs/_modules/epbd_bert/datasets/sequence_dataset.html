@@ -280,14 +280,12 @@ document.write(`
 <span class="k">class</span> <span class="nc">SequenceDataset</span><span class="p">(</span><span class="n">Dataset</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Dataset for supervised fine-tuning.&quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
-        <span class="bp">self</span><span class="p">,</span> <span class="n">data_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">tokenizer</span><span class="p">:</span> <span class="n">transformers</span><span class="o">.</span><span class="n">PreTrainedTokenizer</span><span class="p">,</span> <span class="n">home_dir</span><span class="o">=</span><span class="s2">&quot;&quot;</span>
-    <span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">tokenizer</span><span class="p">:</span> <span class="n">transformers</span><span class="o">.</span><span class="n">PreTrainedTokenizer</span><span class="p">,</span> <span class="n">home_dir</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
         <span class="n">data_path</span> <span class="o">=</span> <span class="n">home_dir</span> <span class="o">+</span> <span class="n">data_path</span>
         <span class="c1"># &quot;data/train_val_test/peaks_with_labels_val.tsv.gz&quot;</span>
-        <span class="n">labels_dict_path</span> <span class="o">=</span> <span class="n">home_dir</span> <span class="o">+</span> <span class="s2">&quot;data/processed/peakfilename_index_dict.pkl&quot;</span>
-        <span class="n">seqs_dict_path</span> <span class="o">=</span> <span class="n">home_dir</span> <span class="o">+</span> <span class="s2">&quot;data/processed/seq_with_flanks_dict.pkl&quot;</span>
+        <span class="n">labels_dict_path</span> <span class="o">=</span> <span class="n">home_dir</span> <span class="o">+</span> <span class="s2">&quot;resources/processed_data/peakfilename_index_dict.pkl&quot;</span>
+        <span class="n">seqs_dict_path</span> <span class="o">=</span> <span class="n">home_dir</span> <span class="o">+</span> <span class="s2">&quot;resources/processed_data/seq_with_flanks_dict.pkl&quot;</span>
         <span class="c1"># this may contain &quot;N&quot;s since the flanks are not cleaned but 200seq are cleaned</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">tokenizer</span> <span class="o">=</span> <span class="n">tokenizer</span>
 
@@ -360,15 +358,18 @@ document.write(`
 
 
 
-<span class="c1"># data_path = &quot;data/train_val_test/peaks_with_labels_val.tsv.gz&quot;</span>
+<span class="c1"># data_path = &quot;resources/train_val_test/peaks_with_labels_val.tsv.gz&quot;</span>
 <span class="c1"># tokenizer = transformers.AutoTokenizer.from_pretrained(</span>
-<span class="c1">#     &quot;data/dnabert2_pretrained/DNABERT-2-117M/&quot;,</span>
+<span class="c1">#     &quot;resources/DNABERT-2-117M/&quot;,</span>
 <span class="c1">#     trust_remote_code=True,</span>
-<span class="c1">#     cache_dir=&quot;data/dnabert2_pretrained/cache/&quot;,</span>
+<span class="c1">#     cache_dir=&quot;resources/cache/&quot;,</span>
 <span class="c1"># )</span>
-<span class="c1"># d = SequenceDataset(data_path, tokenizer)</span>
-<span class="c1"># print(d.__len__())</span>
-<span class="c1"># print(d.__getitem__(100))</span>
+<span class="c1"># ds = SequenceDataset(data_path, tokenizer)</span>
+<span class="c1"># print(ds.__len__())</span>
+<span class="c1"># print(ds.__getitem__(100))</span>
+
+<span class="c1"># to run</span>
+<span class="c1"># python -m epbd_bert.datasets.sequence_dataset</span>
 </pre></div>
 
                 </article>

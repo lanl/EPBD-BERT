@@ -285,9 +285,7 @@ document.write(`
 <div class="viewcode-block" id="get_dnabert2_pretrained_model">
 <a class="viewcode-back" href="../../../modules/epbd_bert.utility.html#epbd_bert.utility.dnabert2.get_dnabert2_pretrained_model">[docs]</a>
 <span class="k">def</span> <span class="nf">get_dnabert2_pretrained_model</span><span class="p">(</span><span class="n">home_dir</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
-    <span class="n">model</span> <span class="o">=</span> <span class="n">AutoModel</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span>
-        <span class="n">home_dir</span> <span class="o">+</span> <span class="n">dnabert2_pretrained_dirpath</span><span class="p">,</span> <span class="n">trust_remote_code</span><span class="o">=</span><span class="kc">True</span>
-    <span class="p">)</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">AutoModel</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="n">home_dir</span> <span class="o">+</span> <span class="n">dnabert2_pretrained_dirpath</span><span class="p">,</span> <span class="n">trust_remote_code</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">model</span></div>
 
 

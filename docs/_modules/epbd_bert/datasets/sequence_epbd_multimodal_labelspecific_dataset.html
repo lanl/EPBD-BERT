@@ -278,27 +278,33 @@ document.write(`
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">data_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">pydnaepbd_features_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
         <span class="n">tokenizer</span><span class="p">:</span> <span class="n">transformers</span><span class="o">.</span><span class="n">PreTrainedTokenizer</span><span class="p">,</span>
         <span class="n">label</span><span class="o">=</span><span class="s2">&quot;wgEncodeAwgTfbsBroadDnd41CtcfUniPk&quot;</span><span class="p">,</span>
         <span class="n">home_dir</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
     <span class="p">):</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">data_path</span><span class="p">,</span> <span class="n">tokenizer</span><span class="p">,</span> <span class="n">home_dir</span><span class="p">)</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">data_path</span><span class="p">,</span> <span class="n">pydnaepbd_features_path</span><span class="p">,</span> <span class="n">tokenizer</span><span class="p">,</span> <span class="n">home_dir</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">data_df</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_df</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">data_df</span><span class="p">[</span><span class="s2">&quot;labels&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">x</span><span class="p">)]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">data_df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div>
 
 
 
-<span class="c1"># data_path = &quot;data/train_val_test/peaks_with_labels_test.tsv.gz&quot;</span>
 <span class="c1"># tokenizer = transformers.AutoTokenizer.from_pretrained(</span>
-<span class="c1">#     &quot;data/dnabert2_pretrained/DNABERT-2-117M/&quot;,</span>
+<span class="c1">#     &quot;resources/DNABERT-2-117M/&quot;,</span>
 <span class="c1">#     trust_remote_code=True,</span>
-<span class="c1">#     cache_dir=&quot;data/dnabert2_pretrained/cache/&quot;,</span>
+<span class="c1">#     cache_dir=&quot;resources/cache/&quot;,</span>
 <span class="c1"># )</span>
-<span class="c1"># d = SequenceEPBDMultiModalLabelSpecificDataset(</span>
-<span class="c1">#     data_path, tokenizer, label=&quot;wgEncodeAwgTfbsBroadDnd41CtcfUniPk&quot;</span>
+<span class="c1"># ds = SequenceEPBDMultiModalLabelSpecificDataset(</span>
+<span class="c1">#     data_path=&quot;resources/train_val_test/peaks_with_labels_test.tsv.gz&quot;,</span>
+<span class="c1">#     pydnaepbd_features_path=&quot;resources/pydnaepbd_things/coord_flips/id_seqs/&quot;,  # ../data, resources</span>
+<span class="c1">#     tokenizer=tokenizer,</span>
+<span class="c1">#     label=&quot;wgEncodeAwgTfbsBroadDnd41CtcfUniPk&quot;,</span>
 <span class="c1"># )</span>
-<span class="c1"># print(d.__len__())</span>
-<span class="c1"># print(d.__getitem__(100))</span>
+<span class="c1"># print(ds.__len__())</span>
+<span class="c1"># print(ds.__getitem__(100))</span>
+
+<span class="c1"># to run</span>
+<span class="c1"># python -m epbd_bert.datasets.sequence_epbd_multimodal_labelspecific_dataset</span>
 </pre></div>
 
                 </article>

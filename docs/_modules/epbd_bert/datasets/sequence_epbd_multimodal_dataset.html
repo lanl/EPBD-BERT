@@ -277,10 +277,8 @@ document.write(`
 <span class="k">class</span> <span class="nc">SequenceEPBDMultiModalDataset</span><span class="p">(</span><span class="n">SequenceEPBDDataset</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Dataset for multi-modal transformer&quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
-        <span class="bp">self</span><span class="p">,</span> <span class="n">data_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">tokenizer</span><span class="p">:</span> <span class="n">transformers</span><span class="o">.</span><span class="n">PreTrainedTokenizer</span><span class="p">,</span> <span class="n">home_dir</span><span class="o">=</span><span class="s2">&quot;&quot;</span>
-    <span class="p">):</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">data_path</span><span class="p">,</span> <span class="n">tokenizer</span><span class="p">,</span> <span class="n">home_dir</span><span class="p">)</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">pydnaepbd_features_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">tokenizer</span><span class="p">:</span> <span class="n">transformers</span><span class="o">.</span><span class="n">PreTrainedTokenizer</span><span class="p">,</span> <span class="n">home_dir</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">data_path</span><span class="p">,</span> <span class="n">pydnaepbd_features_path</span><span class="p">,</span> <span class="n">tokenizer</span><span class="p">,</span> <span class="n">home_dir</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">_get_epbd_features</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fname</span><span class="p">):</span>
         <span class="n">fpath</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">feat_path</span> <span class="o">+</span> <span class="n">fname</span>
@@ -288,7 +286,8 @@ document.write(`
 
         <span class="c1"># coord and flip features</span>
         <span class="n">coord</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;coord&quot;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-        <span class="n">flips</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;flip_verbose&quot;</span><span class="p">])</span>
+        <span class="n">flips</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;flip_verbose&quot;</span><span class="p">]</span> <span class="k">if</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;flip_verbose&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">5</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;flip_verbose&quot;</span><span class="p">])</span>
+        <span class="c1"># print(coord.shape, flips.shape)  # (1, 200) (5, 200)</span>
         <span class="n">epbd_features</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">coord</span><span class="p">,</span> <span class="n">flips</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="o">/</span> <span class="mi">80000</span>
         <span class="n">epbd_features</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">epbd_features</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
         <span class="c1"># print(epbd_features.shape) # [6, 200]</span>
@@ -296,13 +295,21 @@ document.write(`
 
 
 
-<span class="c1"># data_path = &quot;data/train_val_test/peaks_with_labels_val.tsv.gz&quot;</span>
 <span class="c1"># tokenizer = transformers.AutoTokenizer.from_pretrained(</span>
-<span class="c1">#     &quot;data/dnabert2_pretrained/DNABERT-2-117M/&quot;</span>
+<span class="c1">#     &quot;resources/DNABERT-2-117M/&quot;,</span>
+<span class="c1">#     trust_remote_code=True,</span>
+<span class="c1">#     cache_dir=&quot;resources/cache/&quot;,</span>
 <span class="c1"># )</span>
-<span class="c1"># d = SequenceEPBDMultiModalDataset(data_path, tokenizer)</span>
-<span class="c1"># print(d.__len__())</span>
-<span class="c1"># print(d.__getitem__(100))</span>
+<span class="c1"># ds = SequenceEPBDMultiModalDataset(</span>
+<span class="c1">#     data_path=&quot;resources/train_val_test/peaks_with_labels_test.tsv.gz&quot;,</span>
+<span class="c1">#     pydnaepbd_features_path=&quot;resources/pydnaepbd_things/coord_flips/id_seqs/&quot;,  # ../data, resources</span>
+<span class="c1">#     tokenizer=tokenizer,</span>
+<span class="c1"># )</span>
+<span class="c1"># print(ds.__len__())</span>
+<span class="c1"># print(ds.__getitem__(100))</span>
+
+<span class="c1"># to run</span>
+<span class="c1"># python -m epbd_bert.datasets.sequence_epbd_multimodal_dataset</span>
 </pre></div>
 
                 </article>

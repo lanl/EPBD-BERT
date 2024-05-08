@@ -271,7 +271,8 @@ document.write(`
 
 <span class="kn">import</span> <span class="nn">epbd_bert.utility.pickle_utils</span> <span class="k">as</span> <span class="nn">pickle_utils</span>
 <span class="kn">from</span> <span class="nn">epbd_bert.datasets.sequence_dataset</span> <span class="kn">import</span> <span class="n">SequenceDataset</span>
-<span class="kn">from</span> <span class="nn">epbd_bert.path_configs</span> <span class="kn">import</span> <span class="n">pydnaepbd_features_path</span>
+
+<span class="c1"># from epbd_bert.path_configs import pydnaepbd_features_path</span>
 
 
 <div class="viewcode-block" id="SequenceEPBDDataset">
@@ -279,9 +280,7 @@ document.write(`
 <span class="k">class</span> <span class="nc">SequenceEPBDDataset</span><span class="p">(</span><span class="n">SequenceDataset</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Supervised fine-tuning from seq and epbd features&quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
-        <span class="bp">self</span><span class="p">,</span> <span class="n">data_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">tokenizer</span><span class="p">:</span> <span class="n">transformers</span><span class="o">.</span><span class="n">PreTrainedTokenizer</span><span class="p">,</span> <span class="n">home_dir</span><span class="o">=</span><span class="s2">&quot;&quot;</span>
-    <span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">pydnaepbd_features_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">tokenizer</span><span class="p">:</span> <span class="n">transformers</span><span class="o">.</span><span class="n">PreTrainedTokenizer</span><span class="p">,</span> <span class="n">home_dir</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">data_path</span><span class="p">,</span> <span class="n">tokenizer</span><span class="p">,</span> <span class="n">home_dir</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">feat_path</span> <span class="o">=</span> <span class="n">home_dir</span> <span class="o">+</span> <span class="n">pydnaepbd_features_path</span>
 
@@ -290,9 +289,7 @@ document.write(`
         <span class="n">data</span> <span class="o">=</span> <span class="n">pickle_utils</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">fpath</span><span class="p">)</span>
 
         <span class="c1"># coord and flip features</span>
-        <span class="n">concatenated_data</span> <span class="o">=</span> <span class="p">(</span>
-            <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;coord&quot;</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;flip_verbose&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">flatten</span><span class="p">()])</span> <span class="o">/</span> <span class="mi">80000</span>
-        <span class="p">)</span>
+        <span class="n">concatenated_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;coord&quot;</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;flip_verbose&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">flatten</span><span class="p">()])</span> <span class="o">/</span> <span class="mi">80000</span>
 
         <span class="c1"># only coords features</span>
         <span class="c1"># concatenated_data = data[&quot;coord&quot;] / 80000</span>
@@ -312,6 +309,23 @@ document.write(`
 
         <span class="k">return</span> <span class="nb">dict</span><span class="p">(</span><span class="n">input_ids</span><span class="o">=</span><span class="n">input_ids</span><span class="p">,</span> <span class="n">epbd_features</span><span class="o">=</span><span class="n">epbd_features</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">labels</span><span class="p">)</span></div>
 
+
+
+<span class="c1"># tokenizer = transformers.AutoTokenizer.from_pretrained(</span>
+<span class="c1">#     &quot;resources/DNABERT-2-117M/&quot;,</span>
+<span class="c1">#     trust_remote_code=True,</span>
+<span class="c1">#     cache_dir=&quot;resources/cache/&quot;,</span>
+<span class="c1"># )</span>
+<span class="c1"># ds = SequenceEPBDDataset(</span>
+<span class="c1">#     data_path=&quot;resources/train_val_test/peaks_with_labels_test.tsv.gz&quot;,</span>
+<span class="c1">#     pydnaepbd_features_path=&quot;resources/pydnaepbd_things/coord_flips/id_seqs/&quot;,  # ../data, resources</span>
+<span class="c1">#     tokenizer=tokenizer,</span>
+<span class="c1"># )</span>
+<span class="c1"># print(ds.__len__())</span>
+<span class="c1"># print(ds.__getitem__(100))</span>
+
+<span class="c1"># to run</span>
+<span class="c1"># python -m epbd_bert.datasets.sequence_epbd_dataset</span>
 </pre></div>
 
                 </article>
