@@ -1,13 +1,13 @@
 #!/usr/bin/sh
 
 # to generate the doc, run the following line from terminal
-# cd doc_builder/ && bash create.sh && cd ..
+# cd docs_builder/ && bash create.sh && cd ..
 
 
 # pip install sphinx
 # pip install sphinx-book-theme
 
-# cd doc_builder/ && sphinx-quickstart && cd ..
+# cd docs_builder/ && sphinx-quickstart && cd ..
     # > Separate source and build directories (y/n) [n]: y
     # > Project name: pyDNA-EPBD
     # > Author name(s): AK
@@ -26,8 +26,8 @@ sphinx-apidoc -o source/modules ../epbd_bert/
 
 make html
 
-rm -rf ../doc/*
-touch ../doc/.nojekyll
-mv build/html/* ../doc/
-mv build/doctrees ../doc/
+rm -rf ../docs/*
+touch ../docs/.nojekyll
+mv build/html/* ../docs/
+mv build/doctrees ../docs/
 rm -rf build
