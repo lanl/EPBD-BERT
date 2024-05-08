@@ -75,10 +75,10 @@ The 'data_preprocessing' directory holds all the data generation steps and divid
      - Scripts
    * - Download human genome assembly (GRCh37/hg19) and `uniform TFBS <https://genome.ucsc.edu/cgi-bin/hgTrackUi?hgsid=2215774794_SHfvFO0XVRMcn6xaqOTugAa1Faf1&c=chr1&g=wgEncodeAwgTfbsUniform>`_
      - ``0_download_data.py``
-   * -
-     -
-   * -
-     -
+   * - Preprocess TFBS narrowpeak files and human genome
+     - ``1_preprocess_narrowPeaks_and_humanGenome.sh``
+   * - Overlapping computation for label association
+     - ``2.1_compute_overlappings_job.sh``<br /> ``2.2_compute_overlappings.sh``<br /> ``3_postprocess.sh``
    * -
      -
    * -
@@ -89,8 +89,8 @@ The 'data_preprocessing' directory holds all the data generation steps and divid
      -
 
 .. |   | ``````  |
-.. | Preprocess TFBS narrowpeak files and human genome | ```1_preprocess_narrowPeaks_and_humanGenome.sh``` |
-.. | Overlapping computation for label association | ```2.1_compute_overlappings_job.sh```<br /> ```2.2_compute_overlappings.sh```<br /> ```3_postprocess.sh``` |
+.. |  | ````` |
+.. |  |  |
 .. | Label association | ```5.1_extract_bins_containingOtherThanACGT.ipynb```<br /> ```5.2_compute_peaks_with_labels_clean.sh```|
 .. | Data preprocessing for DNA breathing dynamics generation and DNABERT2 | ```6.1_create_data_for_pydnaepbd.ipynb```<br />  ```6.2_create_data_for_dnabert2.ipynb``` |
 .. | Train/validation/test split| ```7_create_train_val_test_set.ipynb``` |
