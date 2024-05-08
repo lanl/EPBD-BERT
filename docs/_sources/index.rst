@@ -73,40 +73,41 @@ The 'data_preprocessing' directory holds all the data generation steps and divid
 
    * - Step
      - Scripts
-   * - Download human genome assembly (GRCh37/hg19) and `uniform TFBS <https://genome.ucsc.edu/cgi-bin/hgTrackUi?hgsid=2215774794_SHfvFO0XVRMcn6xaqOTugAa1Faf1&c=chr1&g=wgEncodeAwgTfbsUniform>`_
+   * - Download human genome assembly (GRCh37/hg19) and uniform TFBS
      - ``0_download_data.py``
    * - Preprocess TFBS narrowpeak files and human genome
      - ``1_preprocess_narrowPeaks_and_humanGenome.sh``
    * - Overlapping computation for label association
      - ``2.1_compute_overlappings_job.sh`` ``2.2_compute_overlappings.sh`` ``3_postprocess.sh``
-   * -
-     -
-   * -
-     -
-   * -
-     -
-   * -
-     -
+   * - Label association
+     - ``5.1_extract_bins_containingOtherThanACGT.ipynb`` ``5.2_compute_peaks_with_labels_clean.sh``
+   * - Data preprocessing for DNA breathing dynamics generation and DNABERT2
+     - ``6.1_create_data_for_pydnaepbd.ipynb`` ``6.2_create_data_for_dnabert2.ipynb``
+   * - Train/validation/test split 
+     - ``7_create_train_val_test_set.ipynb``
+   * - Associating numeric values for each label 
+     - ``8_create_labels_dict.ipynb``
+   * - Further processing on negative regions
+     - ``9.1_generic_neg_regions.sh`` ``9.2_neg_regions_otherThanACGT.ipynb`` ``9.3_clean_generic_neg_regions.sh`` ``9.4_clean_generic_neg_seqs.ipynb``
 
-.. |   | ``````  |
-.. |  | ````` |
-.. |  |  |
-.. | Label association | ```5.1_extract_bins_containingOtherThanACGT.ipynb```<br /> ```5.2_compute_peaks_with_labels_clean.sh```|
-.. | Data preprocessing for DNA breathing dynamics generation and DNABERT2 | ```6.1_create_data_for_pydnaepbd.ipynb```<br />  ```6.2_create_data_for_dnabert2.ipynb``` |
-.. | Train/validation/test split| ```7_create_train_val_test_set.ipynb``` |
-.. | Associating numeric values for each label | ```8_create_labels_dict.ipynb``` |
-.. | Further processing on negative regions | ```9.1_generic_neg_regions.sh```<br /> ```9.2_neg_regions_otherThanACGT.ipynb```<br /> ```9.3_clean_generic_neg_regions.sh```<br /> ```9.4_clean_generic_neg_seqs.ipynb``` |
 
 
 Preprocessed dataset loading
 ========================================
 Preprocessed dataset can be downloaded from here (will be provided).
 
-| Dataset Module  | Usage |
-| :--- | :--- |
-| ```epbd_bert.datasets.sequence_dataset```  | Loads sequence only dataset  |
-| ```epbd_bert.datasets.sequence_epbd_dataset``` | Loads sequence and EPBD (flat) features |
-| ```epbd_bert.datasets.sequence_epbd_multimodal_dataset``` | Loads sequence and EPBD (matrix) features |
+.. list-table::
+   :widths: 50 50
+   :header-rows: 1
+   
+   * - Dataset Module
+     - Usage 
+   * - ``epbd_bert.datasets.sequence_dataset``
+     - Loads sequence only dataset
+   * - ``epbd_bert.datasets.sequence_epbd_dataset`` 
+     - Loads sequence and EPBD (flat) features
+   * - ``epbd_bert.datasets.sequence_epbd_multimodal_dataset`` 
+     - Loads sequence and EPBD (matrix) features
 
 Note: There are some other dataset modules. Each module provides example running instructions at the bottom.
 
@@ -114,19 +115,32 @@ Note: There are some other dataset modules. Each module provides example running
 Training and testing the developed models
 ================================================================================
 
-| Model Module | Usage |
-| :--- | :--- |
-| DNABERT2-finetuned | |
-| ```epbd_bert.dnabert2_classifier.train_lightning``` | Train DNABERT2 using train/validation split |
-| ```epbd_bert.dnabert2_classifier.test``` | Test finetuned DNABERT2 on test split |
-| VanillaEPBD-DNABERT2-coordflip | |
-| ```epbd_bert.dnabert2_epbd.train_lightning``` | Train VanillaEPBD-DNABERT2 using train/validation split |
-| ```epbd_bert.dnabert2_epbd.test``` | Test VanillaEPBD-DNABERT2 on test split |
-| EPBDxDNABERT-2 | |
-| ```epbd_bert.dnabert2_epbd_crossattn.train_lightning``` | Train EPBDxDNABERT-2 using train/validation split |
-| ```epbd_bert.dnabert2_epbd_crossattn.test``` | Test EPBDxDNABERT-2 on test split  |
+.. list-table::
+   :widths: 50 50
+   :header-rows: 1
+   
+   * - Model Module
+     - Usage 
+   * - DNABERT2-finetuned
+     - 
+   * - ``epbd_bert.dnabert2_classifier.train_lightning``
+     - Train DNABERT2 using train/validation split
+   * - ``epbd_bert.dnabert2_classifier.test``
+     - Test finetuned DNABERT2 on test split
+   * - VanillaEPBD-DNABERT2-coordflip
+     - 
+   * - ``epbd_bert.dnabert2_epbd.train_lightning``
+     - Train VanillaEPBD-DNABERT2 using train/validation split 
+   * - ``epbd_bert.dnabert2_epbd.test`` 
+     - Test VanillaEPBD-DNABERT2 on test split
+   * - EPBDxDNABERT-2
+     -
+   * - ``epbd_bert.dnabert2_epbd_crossattn.train_lightning``
+     - Train EPBDxDNABERT-2 using train/validation split
+   * - ``epbd_bert.dnabert2_epbd_crossattn.test```
+     - Test EPBDxDNABERT-2 on test split
 
-Note: Details of each model with other ablation study can be found in the [Paper](https://www.biorxiv.org/content/10.1101/2024.01.16.575935v2.abstract). To run train/test: ```python -m epbd_bert.dnabert2_classifier.test```.
+Note: Details of each model with other ablation study can be found in the `Paper <https://www.biorxiv.org/content/10.1101/2024.01.16.575935v2.abstract>`_. To run train/test: ``python -m epbd_bert.dnabert2_classifier.test``.
 
 
 Acknowledgements
