@@ -61,30 +61,29 @@ conda activate epbd_bert_condavenv_test1
 conda install -c conda-forge scikit-learn scipy pandas matplotlib seaborn jupyterlab -y
 --->
 
-### Bedtools Setup
 
-Follow the [bedtools installation guide](https://bedtools.readthedocs.io/en/latest/content/installation.html). We also provide a script that downloads the pre-compiled binary of the software into the *bedtools* directory:
+## Data Preprocessing Steps
+The 'data_preprocessing' directory holds all the data generation steps and divided into modules for data generation and bug tracking. We utilized '[bedtools](https://bedtools.readthedocs.io/en/latest/)' software for genome operation. Follow the [bedtools installation guide](https://bedtools.readthedocs.io/en/latest/content/installation.html). We also provide a bare minimum script that downloads the pre-compiled binary of the software into the *bedtools* directory:
 
 ```bash
 bash setup_bedtools.sh
 export PATH=$PATH:$(pwd)/bedtools
 ```
 
-## Data Preprocessing Steps
+| Step  | Scripts |
+| :--- | :--- |
+| Download human genome assembly (GRCh37/hg19) and [uniform TFBS](https://genome.ucsc.edu/cgi-bin/hgTrackUi?hgsid=2215774794_SHfvFO0XVRMcn6xaqOTugAa1Faf1&c=chr1&g=wgEncodeAwgTfbsUniform)  | ```0_download_data.py```  |
+| Preprocess TFBS narrowpeak files and human genome | ```1_preprocess_narrowPeaks_and_humanGenome.sh``` |
+| Overlapping computation for label association | ```2.1_compute_overlappings_job.sh```<br /> ```2.2_compute_overlappings.sh```<br /> ```3_postprocess.sh``` |
+| Label association | ```5.1_extract_bins_containingOtherThanACGT.ipynb```<br /> ```5.2_compute_peaks_with_labels_clean.sh```|
+| Data preprocessing for DNA breathing dynamics generation and DNABERT2 | ```6.1_create_data_for_pydnaepbd.ipynb```<br />  ```6.2_create_data_for_dnabert2.ipynb``` |
+| Train/validation/test split| ```7_create_train_val_test_set.ipynb``` |
+| Associating numeric values for each label | ```8_create_labels_dict.ipynb``` |
+| Further processing on negative regions | ```9.1_generic_neg_regions.sh```<br /> ```9.2_neg_regions_otherThanACGT.ipynb```<br /> ```9.3_clean_generic_neg_regions.sh```<br /> ```9.4_clean_generic_neg_seqs.ipynb``` |
 
-```bash
-python data_preprocessing/0_download_data.py
-bash data_preprocessing/1_preprocess_narrowPeaks_and_humanGenome.sh
-sbatch data_preprocessing/2.1_compute_overlappings_job.sh
-bash data_preprocessing/3_postprocess.sh
-jupyter notebook data_preprocessing/4_merge_peaks_with_same_labels.ipynb
-jupyter notebook data_preprocessing/5.1_extract_bins_containingOtherThanACGT.ipynb
-bash data_preprocessing/5.2_compute_peaks_with_labels_clean.sh
-jupyter notebook data_preprocessing/6.1_create_data_for_pydnaepbd.ipynb
-jupyter notebook data_preprocessing/6.2_create_data_for_dnabert2.ipynb
-jupyter notebook data_preprocessing/7_create_train_val_test_set.ipynb
-jupyter notebook data_preprocessing/8_create_labels_dict.ipynb
-```
+
+## Preprocessed dataset loading
+Preprocessed dataset can be downloaded from here (will be provided).
 
 | Dataset Module  | Usage |
 | :--- | :--- |
@@ -94,7 +93,10 @@ jupyter notebook data_preprocessing/8_create_labels_dict.ipynb
 
 Note: There are some other dataset modules. Each module provides example running instructions at the bottom.
 
+
 ## Training and testing the developed models
+
+
 | Model Module | Usage |
 | :--- | :--- |
 | DNABERT2-finetuned | |
@@ -109,13 +111,14 @@ Note: There are some other dataset modules. Each module provides example running
 
 Note: Details of each model with other ablation study can be found in the [Paper](https://www.biorxiv.org/content/10.1101/2024.01.16.575935v2.abstract). To run train/test: ```python -m epbd_bert.dnabert2_classifier.test```.
 
+
 ## Authors
 
 * [Anowarul Kabir] (mailto:akabir4@gmu.edu)- Computer Sciece, George Mason University
 * [Manish Bhattarai] (mailto:ceodspspectrum@lanl.gov)- Theoretical Division, Los Alamos National Laboratory
 * [Kim Rasmussen] (mailto:kor@lanl.gov)- Theoretical Division, Los Alamos National Laboratory
 * [Amarda Shehu] (mailto:ashehu@gmu.edu)- Computer Sciece, George Mason University
-* [Anny Usheva] (mailto:Anny Usheva@brown.edu>)-Surgery, Rhode Island Hospital and Brown University
+* [Anny Usheva] (mailto:Anny\_Usheva@brown.edu>)-Surgery, Rhode Island Hospital and Brown University
 * [Alan Bishop] (mailto:arb@lanl.gov)- Theoretical Division, Los Alamos National Laboratory
 * [Boian S. Alexandrov] (mailto:boian@lanl.gov)- Theoretical Division, Los Alamos National Laboratory
 
