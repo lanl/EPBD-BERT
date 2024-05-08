@@ -314,6 +314,9 @@ document.write(`
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Welcome to EPBD-BERT’s documentation!</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#resources">Resources</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">Installation</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#data-preprocessing-steps">Data Preprocessing Steps</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessed-dataset-loading">Preprocessed dataset loading</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#training-and-testing-the-developed-models">Training and testing the developed models</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgements">Acknowledgements</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#copyright-notice">Copyright notice</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#license">License</a></li>
@@ -337,7 +340,7 @@ document.write(`
 <h1>Welcome to EPBD-BERT’s documentation!<a class="headerlink" href="#welcome-to-epbd-bert-s-documentation" title="Link to this heading">#</a></h1>
 <p>This repository corresponds to the article titled <strong>“Advancing Transcription Factor Binding Site Prediction Using DNA Breathing Dynamics and Sequence Transformers via Cross Attention”</strong>.</p>
 <figure class="align-center" id="id2">
-<a class="reference internal image-reference" href="_images/EPBD_Arch.jpg"><img alt="_images/EPBD_Arch.jpg" src="_images/EPBD_Arch.jpg" style="width: 70%;" /></a>
+<a class="reference internal image-reference" href="_images/EPBD_Arch.jpg"><img alt="_images/EPBD_Arch.jpg" src="_images/EPBD_Arch.jpg" style="width: 90%;" /></a>
 <figcaption>
 <p><span class="caption-text">Figure 1: Overview of the proposed EPBDxBERT framework.</span><a class="headerlink" href="#id2" title="Link to this image">#</a></p>
 </figcaption>
@@ -384,6 +387,77 @@ conda<span class="w"> </span>remove<span class="w"> </span>--name<span class="w"
 conda<span class="w"> </span>remove<span class="w"> </span>-p<span class="w"> </span>.venvs/epbd_bert_condavenv_test1<span class="w"> </span>--all<span class="w"> </span>-y
 </pre></div>
 </div>
+</section>
+<section id="data-preprocessing-steps">
+<h1>Data Preprocessing Steps<a class="headerlink" href="#data-preprocessing-steps" title="Link to this heading">#</a></h1>
+<p>The ‘data_preprocessing’ directory holds all the data generation steps and divided into modules for data generation and bug tracking. We utilized ‘[bedtools](<a class="reference external" href="https://bedtools.readthedocs.io/en/latest/">https://bedtools.readthedocs.io/en/latest/</a>)’ software for genome operation. Follow the [bedtools installation guide](<a class="reference external" href="https://bedtools.readthedocs.io/en/latest/content/installation.html">https://bedtools.readthedocs.io/en/latest/content/installation.html</a>). We also provide a bare minimum script that downloads the pre-compiled binary of the software into the <em>bedtools</em> directory:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>bash<span class="w"> </span>setup_bedtools.sh
+<span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>/bedtools
+</pre></div>
+</div>
+<table class="table">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Step</p></th>
+<th class="head"><p>Scripts</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Download human genome assembly (GRCh37/hg19) and <a class="reference external" href="https://genome.ucsc.edu/cgi-bin/hgTrackUi?hgsid=2215774794_SHfvFO0XVRMcn6xaqOTugAa1Faf1&amp;c=chr1&amp;g=wgEncodeAwgTfbsUniform">uniform TFBS</a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">0_download_data.py</span></code></p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="preprocessed-dataset-loading">
+<h1>Preprocessed dataset loading<a class="headerlink" href="#preprocessed-dataset-loading" title="Link to this heading">#</a></h1>
+<p>Preprocessed dataset can be downloaded from here (will be provided).</p>
+<div class="line-block">
+<div class="line">Dataset Module  | Usage |</div>
+<div class="line">:— | :— |</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">`epbd_bert.datasets.sequence_dataset`</span></code>  | Loads sequence only dataset  |</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">`epbd_bert.datasets.sequence_epbd_dataset`</span></code> | Loads sequence and EPBD (flat) features |</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">`epbd_bert.datasets.sequence_epbd_multimodal_dataset`</span></code> | Loads sequence and EPBD (matrix) features |</div>
+</div>
+<p>Note: There are some other dataset modules. Each module provides example running instructions at the bottom.</p>
+</section>
+<section id="training-and-testing-the-developed-models">
+<h1>Training and testing the developed models<a class="headerlink" href="#training-and-testing-the-developed-models" title="Link to this heading">#</a></h1>
+<div class="line-block">
+<div class="line">Model Module | Usage |</div>
+<div class="line">:— | :— |</div>
+<div class="line">DNABERT2-finetuned | |</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">`epbd_bert.dnabert2_classifier.train_lightning`</span></code> | Train DNABERT2 using train/validation split |</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">`epbd_bert.dnabert2_classifier.test`</span></code> | Test finetuned DNABERT2 on test split |</div>
+<div class="line">VanillaEPBD-DNABERT2-coordflip | |</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">`epbd_bert.dnabert2_epbd.train_lightning`</span></code> | Train VanillaEPBD-DNABERT2 using train/validation split |</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">`epbd_bert.dnabert2_epbd.test`</span></code> | Test VanillaEPBD-DNABERT2 on test split |</div>
+<div class="line">EPBDxDNABERT-2 | |</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">`epbd_bert.dnabert2_epbd_crossattn.train_lightning`</span></code> | Train EPBDxDNABERT-2 using train/validation split |</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">`epbd_bert.dnabert2_epbd_crossattn.test`</span></code> | Test EPBDxDNABERT-2 on test split  |</div>
+</div>
+<p>Note: Details of each model with other ablation study can be found in the [Paper](<a class="reference external" href="https://www.biorxiv.org/content/10.1101/2024.01.16.575935v2.abstract">https://www.biorxiv.org/content/10.1101/2024.01.16.575935v2.abstract</a>). To run train/test: <code class="docutils literal notranslate"><span class="pre">`python</span> <span class="pre">-m</span> <span class="pre">epbd_bert.dnabert2_classifier.test`</span></code>.</p>
 </section>
 <section id="acknowledgements">
 <h1>Acknowledgements<a class="headerlink" href="#acknowledgements" title="Link to this heading">#</a></h1>
@@ -469,7 +543,7 @@ LANL O#4717</p>
 <span class="go">   journal  = {bioRxiv},</span>
 <span class="go">   pages    = {2024--01},</span>
 <span class="go">   year     = {2024},</span>
-<span class="go">   publisher= {Cold Spring Harbor Laboratory}</span>
+<span class="go">   publisher= {Cold Spring Harbor Laboratory},</span>
 <span class="go">   doi      = {10.5281/zenodo.11130474},</span>
 <span class="go">   url      = {https://www.biorxiv.org/content/10.1101/2024.01.16.575935v2}</span>
 <span class="go">   }</span>
@@ -516,6 +590,9 @@ LANL O#4717</p>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Welcome to EPBD-BERT’s documentation!</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#resources">Resources</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">Installation</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#data-preprocessing-steps">Data Preprocessing Steps</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessed-dataset-loading">Preprocessed dataset loading</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#training-and-testing-the-developed-models">Training and testing the developed models</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgements">Acknowledgements</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#copyright-notice">Copyright notice</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#license">License</a></li>
