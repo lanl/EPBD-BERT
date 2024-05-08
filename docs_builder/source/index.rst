@@ -78,7 +78,7 @@ The 'data_preprocessing' directory holds all the data generation steps and divid
    * - Preprocess TFBS narrowpeak files and human genome
      - ``1_preprocess_narrowPeaks_and_humanGenome.sh``
    * - Overlapping computation for label association
-     - ``2.1_compute_overlappings_job.sh``<br /> ``2.2_compute_overlappings.sh``<br /> ``3_postprocess.sh``
+     - ``2.1_compute_overlappings_job.sh`` ``2.2_compute_overlappings.sh`` ``3_postprocess.sh``
    * -
      -
    * -
