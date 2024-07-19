@@ -70,8 +70,17 @@ def compute_multi_class_weights(home_dir=""):
     class_weights = compute_class_weight("balanced", classes=np.array(list(range(len(labels_dict)))), y=all_labels)
     class_weights = torch.tensor(class_weights, dtype=torch.float)
 
-    # print(class_weights)
+    # print(class_weights.shape)
     return class_weights
 
 
 # compute_multi_class_weights()
+
+def compute_binary_class_weights(data_index=0):
+    data_df = pd.read_csv(f"../data/mouse_tfbs/mouse/{data_index}/train.csv")
+    class_weights = compute_class_weight("balanced", classes=np.array([0, 1]), y=data_df["label"])
+    class_weights = torch.tensor(class_weights, dtype=torch.float)
+    # print(class_weights)
+    return class_weights
+
+# compute_binary_class_weights(4)

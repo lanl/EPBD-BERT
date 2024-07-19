@@ -9,15 +9,10 @@ class SeqLabelEPBDDataCollator:
         self.pad_token_id = pad_token_id
 
     def __call__(self, instances: Sequence[Dict]) -> Dict[str, torch.Tensor]:
-        input_ids, labels, epbd_features = tuple(
-            [instance[key] for instance in instances]
-            for key in ("input_ids", "labels", "epbd_features")
-        )
+        input_ids, labels, epbd_features = tuple([instance[key] for instance in instances] for key in ("input_ids", "labels", "epbd_features"))
 
         # padding tokens in a mini-batch as the length of the maximum seq_len
-        input_ids = torch.nn.utils.rnn.pad_sequence(
-            input_ids, batch_first=True, padding_value=self.pad_token_id
-        )
+        input_ids = torch.nn.utils.rnn.pad_sequence(input_ids, batch_first=True, padding_value=self.pad_token_id)
         # print(input_ids.shape)
 
         epbd_features = torch.stack(epbd_features)
@@ -53,14 +48,10 @@ class SeqLabelDataCollator:
         self.pad_token_id = pad_token_id
 
     def __call__(self, instances: Sequence[Dict]) -> Dict[str, torch.Tensor]:
-        input_ids, labels = tuple(
-            [instance[key] for instance in instances] for key in ("input_ids", "labels")
-        )
+        input_ids, labels = tuple([instance[key] for instance in instances] for key in ("input_ids", "labels"))
 
         # padding tokens in a mini-batch as the length of the maximum seq_len
-        input_ids = torch.nn.utils.rnn.pad_sequence(
-            input_ids, batch_first=True, padding_value=self.pad_token_id
-        )
+        input_ids = torch.nn.utils.rnn.pad_sequence(input_ids, batch_first=True, padding_value=self.pad_token_id)
         # print(input_ids.shape)
 
         # stacking labels

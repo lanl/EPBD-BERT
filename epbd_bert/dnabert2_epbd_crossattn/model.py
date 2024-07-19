@@ -5,7 +5,7 @@ from sklearn import metrics
 import lightning
 import lightning.pytorch.loggers
 
-from epbd_bert.utility.data_utils import compute_multi_class_weights
+from epbd_bert.utility.data_utils import compute_multi_class_weights, compute_binary_class_weights
 from epbd_bert.utility.dnabert2 import get_dnabert2_pretrained_model
 from epbd_bert.dnabert2_epbd_crossattn.configs import EPBDConfigs
 
@@ -46,12 +46,8 @@ class MultiModalLayer(nn.Module):
         # b: batch_size, l1: enc_batch_seq_len, l2: epbd_seq_len  d_model: embedding_dim
         # seq_embedding: b, l1, d_model
         # epbd_embedding: b, l2, d_model
-        attn_output, self_attn_weights = self.self_attn(
-            epbd_embedding, epbd_embedding, epbd_embedding
-        )
-        epbd_embedding = self.epbd_embedding_norm(
-            epbd_embedding + self.dropout(attn_output)
-        )
+        attn_output, self_attn_weights = self.self_attn(epbd_embedding, epbd_embedding, epbd_embedding)
+        epbd_embedding = self.epbd_embedding_norm(epbd_embedding + self.dropout(attn_output))
 
         # print(epbd_embedding.shape, seq_embedding.shape)
         attn_output, cross_attn_weights = self.cross_attn(
@@ -61,9 +57,7 @@ class MultiModalLayer(nn.Module):
             key_padding_mask=key_padding_mask,
         )
         # print("cross-attn-out", attn_output)
-        epbd_embedding = self.cross_attn_norm(
-            epbd_embedding + self.dropout(attn_output)
-        )
+        epbd_embedding = self.cross_attn_norm(epbd_embedding + self.dropout(attn_output))
 
         ff_output = self.feed_forward(epbd_embedding)
         epbd_embedding = self.norm(epbd_embedding + self.dropout(ff_output))
@@ -142,14 +136,10 @@ class EPBDDnabert2Model(lightning.LightningModule):
             d_ff=configs.d_ff,
             p_dropout=configs.p_dropout,
         )
-        self.pooling_layer = PoolingLayer(
-            d_model=configs.d_model, dropout=configs.p_dropout
-        )
+        self.pooling_layer = PoolingLayer(d_model=configs.d_model, dropout=configs.p_dropout)
 
         self.classifier = nn.Linear(configs.d_model, configs.n_classes)
-        self.criterion = torch.nn.BCEWithLogitsLoss(
-            weight=compute_multi_class_weights()
-        )
+        self.criterion = torch.nn.BCEWithLogitsLoss() if configs.n_classes == 1 else torch.nn.BCEWithLogitsLoss(weight=compute_multi_class_weights())
         self.configs = configs
 
         self.val_aucrocs = []
