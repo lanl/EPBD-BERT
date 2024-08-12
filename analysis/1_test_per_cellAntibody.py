@@ -3,14 +3,14 @@ import numpy as np
 import pandas as pd
 from sklearn import metrics
 
-from analysis.perf_metrics import (
+from .perf_metrics import (
     get_auroc,
     get_aupr,
     get_aurocs_and_auprs,
     get_predictions,
 )
 
-from utility.data_utils import get_uniform_peaks_metadata
+from ..epbd_bert.utility.data_utils import get_uniform_peaks_metadata
 
 if __name__ == "__main__":
     # change these 2 lines only
@@ -62,7 +62,7 @@ if __name__ == "__main__":
     result_df.reset_index(drop=True)
 
     # saving the result
-    results_dir = "analysis/aurocs_auprs/"
+    results_dir = "analysis/data/aurocs_auprs/"
     os.makedirs(results_dir, exist_ok=True)
     result_df.to_csv(
         results_dir + f"{model_name}_on_{data_type}.tsv",

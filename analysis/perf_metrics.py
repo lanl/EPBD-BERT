@@ -4,7 +4,7 @@ from torch.utils.data import DataLoader
 import torch.nn.functional as F
 from sklearn import metrics
 import numpy as np
-import utility.pickle_utils as pickle_utils
+from ..epbd_bert.utility import pickle_utils
 
 
 def get_auroc(preds, obs):
@@ -19,8 +19,8 @@ def get_aupr(preds, obs):
     return aupr, precision, recall, ths
 
 
-def get_aurocs_and_auprs(pred_probs: np.array, targets: np.array, verbose=False,fpath='/usr/projects/pyDNA_EPBD/tf_dna_binding/'):
-    label2index_dict = pickle_utils.load(fpath+"data/processed/peakfilename_index_dict.pkl")
+def get_aurocs_and_auprs(pred_probs: np.array, targets: np.array, verbose=False, fpath="/usr/projects/pyDNA_EPBD/tf_dna_binding/"):
+    label2index_dict = pickle_utils.load(fpath + "data/processed/peakfilename_index_dict.pkl")
     index2label_dict = {i: label for label, i in label2index_dict.items()}
     # index2label_dict[0]
     auroc_dict = {}
@@ -81,12 +81,10 @@ def get_predictions(model_name: str, data_type: str, compute_again=False, home_d
         )
         return preds_and_targets_dict
     else:
-        from utility.dnabert2 import get_dnabert2_tokenizer
-        from analysis.models_factory import get_model_and_dataloader
+        from ..epbd_bert.utility.dnabert2 import get_dnabert2_tokenizer
+        from .models_factory import get_model_and_dataloader
 
-        data_path = (
-            home_dir + f"data/train_val_test/peaks_with_labels_{data_type}.tsv.gz"
-        )
+        data_path = home_dir + f"data/train_val_test/peaks_with_labels_{data_type}.tsv.gz"
         tokenizer = get_dnabert2_tokenizer(max_num_tokens=512)
         model, dl = get_model_and_dataloader(model_name, data_path, tokenizer)
         return compute_predictions(model, dl, preds_path)
